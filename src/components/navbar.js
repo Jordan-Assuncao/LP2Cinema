@@ -22,6 +22,7 @@ function Navbar(props) {
           <span className='navbar-toggler-icon'></span>
         </button>
         <div className='collapse navbar-collapse' id='navbarResponsive'>
+        {/*
         <ul className='navbar-nav'>
             <NavbarItem
               render='true'
@@ -29,6 +30,7 @@ function Navbar(props) {
               label='Admins'
             />
           </ul>
+          */}
         <ul className='navbar-nav'>
             <NavbarItem
               render='true'
@@ -99,6 +101,7 @@ function Navbar(props) {
               label='Sessões'
             />
           </ul>
+          {/*
           <ul className='navbar-nav'>
             <NavbarItem
               render='true'
@@ -106,6 +109,7 @@ function Navbar(props) {
               label='Clientes'
             />
           </ul>
+          */}
           <ul className='navbar-nav'>
             <NavbarItem render='true' href='/login' label='Entrar' />
           </ul>

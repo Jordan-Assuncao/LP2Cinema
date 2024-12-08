@@ -7,62 +7,72 @@ import { IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 
-function ListagemSessao(){
-    const navigate = useNavigate();
+function ListagemSessao() {
+  const navigate = useNavigate();
 
-    const [dados, setDados] = useState([]);
+  const [dados, setDados] = useState([]);
 
-    return (
-        <div className='container mt-5 pt-5'>
-          <Card title='Listagem de Categorias'>
-            <div className='row'>
-              <div className='col-lg-12'>
-                <div className='bs-component'>
-                  <button
-                    type='button'
-                    class='btn btn-warning'
-                    //onClick={() => cadastrar()}
-                  >
-                    Nova Categoria
-                  </button>
-                  <table className='table table-hover'>
-                    <thead>
-                      <tr>
-                        <th scope='col'>Descrição</th>
-                        <th scope='col'>Ações</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {dados.map((dado) => (
-                        <tr key={dado.id}>
-                          <td>{dado.descricao}</td>
-                          <td>
-                            <Stack spacing={1} padding={0} direction='row'>
-                              <IconButton
-                                aria-label='edit'
-                                //onClick={() => editar(dado.id)}
-                              >
-                                <EditIcon />
-                              </IconButton>
-                              <IconButton
-                                aria-label='delete'
-                                //onClick={() => excluir(dado.id)}
-                              >
-                                <DeleteIcon />
-                              </IconButton>
-                            </Stack>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>{' '}
-                </div>
-              </div>
+  return (
+    <div className='container mt-5 pt-5'>
+      <Card title='Listagem de Sessoes'>
+        <div className='row'>
+          <div className='col-lg-12'>
+            <div className='bs-component'>
+              <button
+                type='button'
+                class='btn btn-warning'
+              //onClick={() => cadastrar()}
+              >
+                Nova Sessão
+              </button>
+              <table className='table table-hover'>
+                <thead>
+                  <tr>
+                    <th scope='col'>Data</th>
+                    <th scope='col'>Hora</th>
+                    <th scope='col'>Status</th>
+                    <th scope='col'>ID da Sala</th>
+                    <th scope='col'>ID do Preço</th>
+                    <th scope='col'>ID do Filme</th>
+                    <th scope='col'>Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {dados.map((dado) => (
+                    <tr key={dado.id}>
+                      <td>{dado.dataSessao}</td>
+                      <td>{dado.horaSessao}</td>
+                      <td>{dado.statusSessao}</td>
+                      <td>{dado.idSala}</td>
+                      <td>{dado.idPreco}</td>
+                      <td>{dado.idFilme}</td>
+                      <td>
+                        <Stack spacing={1} padding={0} direction='row'>
+                          <IconButton
+                            aria-label='edit'
+                          //onClick={() => editar(dado.id)}
+                          >
+                            <EditIcon />
+                          </IconButton>
+                          <IconButton
+                            aria-label='delete'
+                          //onClick={() => excluir(dado.id)}
+                          >
+                            <DeleteIcon />
+                          </IconButton>
+                        </Stack>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
-          </Card>
+          </div>
         </div>
-      );
-    }
+      </Card>
+    </div>
+  );
+}
 
 
 export default ListagemSessao;

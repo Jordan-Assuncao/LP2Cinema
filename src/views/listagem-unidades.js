@@ -7,10 +7,52 @@ import { IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 
+import axios from 'axios';
+import { BASE_URL } from '../config/axios';
+
+const baseURL = `${BASE_URL}/unidades`;
+
 function ListagemUnidade() {
   const navigate = useNavigate();
 
-  const [dados, setDados] = useState([]);
+  const cadastrar = () => {
+    navigate(`/cadastro-unidade`);
+  };
+
+  const editar = (id) => {
+    navigate(`/cadastro-unidade/${id}`);
+  };
+
+  const [dados, setDados] = React.useState(null);
+
+  async function excluir(id) {
+    let data = JSON.stringify({ id });
+    let url = `${baseURL}/${id}`;
+    console.log(url);
+    await axios
+      .delete(url, data, {
+        headers: { 'Content-Type': 'application/json' },
+      })
+      .then(function (response) {
+        mensagemSucesso(`Unidade excluída com sucesso!`);
+        setDados(
+          dados.filter((dado) => {
+            return dado.id !== id;
+          })
+        );
+      })
+      .catch(function (error) {
+        mensagemErro(`Erro ao excluir a unidade`);
+      });
+  }
+
+  React.useEffect(() => {
+    axios.get(baseURL).then((response) => {
+      setDados(response.data);
+    });
+  }, []);
+
+  if (!dados) return null;
 
   return (
     <div className='container mt-5 pt-5'>
@@ -21,7 +63,7 @@ function ListagemUnidade() {
               <button
                 type='button'
                 class='btn btn-warning'
-              //onClick={() => cadastrar()}
+              onClick={() => cadastrar()}
               >
                 Nova Unidade
               </button>
@@ -42,13 +84,13 @@ function ListagemUnidade() {
                         <Stack spacing={1} padding={0} direction='row'>
                           <IconButton
                             aria-label='edit'
-                          //onClick={() => editar(dado.id)}
+                          onClick={() => editar(dado.id)}
                           >
                             <EditIcon />
                           </IconButton>
                           <IconButton
                             aria-label='delete'
-                          //onClick={() => excluir(dado.id)}
+                          onClick={() => excluir(dado.id)}
                           >
                             <DeleteIcon />
                           </IconButton>

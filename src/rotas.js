@@ -12,6 +12,10 @@ import ListagemTipoDeAssento from './views/listagem-tipos-assento';
 import ListagemTipoDeExibicao from './views/listagem-tipos-exibicao';
 import ListagemUnidade from './views/listagem-unidades';
 import ListagemUsuarioAdmin from './views/listagem-usuariosadmin';
+import ListagemCompra from './views/listagem-compras';
+import ListagemIngresso from './views/listagem-ingressos';
+import ListagemSessaoTipoExibicao from './views/listagem-sessao-tipo-exibicao';
+import ListagemFilmeGenero from './views/listagem-filmegeneros';
 
 import CadastroGenero from './views/cadastro-genero';
 
@@ -37,6 +41,10 @@ function Rotas(props) {
         <Route path='/listagem-tipos-exibicao' element={<ListagemTipoDeExibicao />} />
         <Route path='/listagem-unidades' element={<ListagemUnidade />} />
         <Route path='/listagem-usuariosadmin' element={<ListagemUsuarioAdmin />} />
+        <Route path='/listagem-compras' element={<ListagemCompra />} />
+        <Route path='/listagem-ingressos' element={<ListagemIngresso />} />
+        <Route path='/listagem-filmegeneros' element={<ListagemFilmeGenero />} />
+        <Route path='/listagem-sessao-tipo-exibicao' element={<ListagemSessaoTipoExibicao />} />
       
       </Routes>
     </BrowserRouter>

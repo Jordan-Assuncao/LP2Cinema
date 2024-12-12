@@ -7,21 +7,20 @@ import { IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 
-
 import axios from 'axios';
-import { BASE_URL } from '../config/axios';
+import { BASE_URL4 } from '../config/axios';
 
-const baseURL = `${BASE_URL}/clientes`;
+const baseURL = `${BASE_URL4}/FilmeGeneros`;
 
-function ListagemCliente() {
+function ListagemFilmeGenero() {
   const navigate = useNavigate();
 
   const cadastrar = () => {
-    navigate(`/cadastro-cliente`);
+    navigate(`/cadastro-filmegenero`);
   };
 
   const editar = (id) => {
-    navigate(`/cadastro-cliente/${id}`);
+    navigate(`/cadastro-filmegenero/${id}`);
   };
 
   const [dados, setDados] = React.useState(null);
@@ -35,7 +34,7 @@ function ListagemCliente() {
         headers: { 'Content-Type': 'application/json' },
       })
       .then(function (response) {
-        mensagemSucesso(`Cliente excluído com sucesso!`);
+        mensagemSucesso(`Filme gênero excluído com sucesso!`);
         setDados(
           dados.filter((dado) => {
             return dado.id !== id;
@@ -43,7 +42,7 @@ function ListagemCliente() {
         );
       })
       .catch(function (error) {
-        mensagemErro(`Erro ao excluir o Cliente`);
+        mensagemErro(`Erro ao excluir o Filme Gênero`);
       });
   }
 
@@ -57,7 +56,7 @@ function ListagemCliente() {
 
   return (
     <div className='container mt-5 pt-5'>
-      <Card title='Listagem de Clientes'>
+      <Card title='Listagem de Filme Gêneros'>
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>
@@ -66,21 +65,21 @@ function ListagemCliente() {
                 class='btn btn-warning'
               onClick={() => cadastrar()}
               >
-                Novo Cliente
+                Novo Filme Gênero
               </button>
               <table className='table table-hover'>
                 <thead>
                   <tr>
-                    <th scope='col'>Nome</th>
-                    <th scope='col'>CPF</th>
+                    <th scope='col'>ID Filme</th>
+                    <th scope='col'>ID Genero</th>
                     <th scope='col'>Ações</th>
                   </tr>
                 </thead>
                 <tbody>
                   {dados.map((dado) => (
                     <tr key={dado.id}>
-                      <td>{dado.nome}</td>
-                      <td>{dado.cpf}</td>
+                      <td>{dado.idFilme}</td>
+                      <td>{dado.idGenero}</td>
                       <td>
                         <Stack spacing={1} padding={0} direction='row'>
                           <IconButton
@@ -110,4 +109,4 @@ function ListagemCliente() {
 }
 
 
-export default ListagemCliente;
+export default ListagemFilmeGenero;

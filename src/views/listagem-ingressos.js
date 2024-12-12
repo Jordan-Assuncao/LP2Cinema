@@ -7,21 +7,20 @@ import { IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 
-
 import axios from 'axios';
 import { BASE_URL } from '../config/axios';
 
-const baseURL = `${BASE_URL}/clientes`;
+const baseURL = `${BASE_URL}/Ingressos`;
 
-function ListagemCliente() {
+function ListagemIngresso() {
   const navigate = useNavigate();
 
   const cadastrar = () => {
-    navigate(`/cadastro-cliente`);
+    navigate(`/cadastro-ingresso`);
   };
 
   const editar = (id) => {
-    navigate(`/cadastro-cliente/${id}`);
+    navigate(`/cadastro-ingresso/${id}`);
   };
 
   const [dados, setDados] = React.useState(null);
@@ -35,7 +34,7 @@ function ListagemCliente() {
         headers: { 'Content-Type': 'application/json' },
       })
       .then(function (response) {
-        mensagemSucesso(`Cliente excluído com sucesso!`);
+        mensagemSucesso(`Ingresso excluído com sucesso!`);
         setDados(
           dados.filter((dado) => {
             return dado.id !== id;
@@ -43,7 +42,7 @@ function ListagemCliente() {
         );
       })
       .catch(function (error) {
-        mensagemErro(`Erro ao excluir o Cliente`);
+        mensagemErro(`Erro ao excluir Ingresso`);
       });
   }
 
@@ -57,7 +56,7 @@ function ListagemCliente() {
 
   return (
     <div className='container mt-5 pt-5'>
-      <Card title='Listagem de Clientes'>
+      <Card title='Listagem de Ingressos'>
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>
@@ -66,21 +65,25 @@ function ListagemCliente() {
                 class='btn btn-warning'
               onClick={() => cadastrar()}
               >
-                Novo Cliente
+                Novo Ingresso
               </button>
               <table className='table table-hover'>
                 <thead>
                   <tr>
-                    <th scope='col'>Nome</th>
-                    <th scope='col'>CPF</th>
+                    <th scope='col'>Tipo Ingresso</th>
+                    <th scope='col'>ID Assento</th>
+                    <th scope='col'>ID Sessão</th>
+                    <th scope='col'>ID Compra</th>
                     <th scope='col'>Ações</th>
                   </tr>
                 </thead>
                 <tbody>
                   {dados.map((dado) => (
                     <tr key={dado.id}>
-                      <td>{dado.nome}</td>
-                      <td>{dado.cpf}</td>
+                      <td>{dado.tipoIngresso}</td>
+                      <td>{dado.idAssento}</td>
+                      <td>{dado.idSessao}</td>
+                      <td>{dado.idCompra}</td>
                       <td>
                         <Stack spacing={1} padding={0} direction='row'>
                           <IconButton
@@ -110,4 +113,4 @@ function ListagemCliente() {
 }
 
 
-export default ListagemCliente;
+export default ListagemIngresso;

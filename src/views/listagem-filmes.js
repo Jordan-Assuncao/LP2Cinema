@@ -71,6 +71,7 @@ function ListagemFilme() {
                 <thead>
                   <tr>
                     <th scope='col'>Título</th>
+                    <th scope='col'>Duração</th>
                     <th scope='col'>Ações</th>
                   </tr>
                 </thead>
@@ -78,6 +79,7 @@ function ListagemFilme() {
                   {dados.map((dado) => (
                     <tr key={dado.id}>
                       <td>{dado.titulo}</td>
+                      <td>{dado.duracao}</td>
                       <td>
                         <Stack spacing={1} padding={0} direction='row'>
                           <IconButton

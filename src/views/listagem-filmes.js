@@ -71,7 +71,7 @@ function ListagemFilme() {
                 <thead>
                   <tr>
                     <th scope='col'>Título</th>
-                    <th scope='col'>Duração</th>
+                    <th scope='col'>Duração(Min.)</th>
                     <th scope='col'>Ações</th>
                   </tr>
                 </thead>

@@ -18,6 +18,7 @@ import ListagemSessaoTipoExibicao from './views/listagem-sessao-tipo-exibicao';
 import ListagemFilmeGenero from './views/listagem-filmegeneros';
 
 import CadastroGenero from './views/cadastro-genero';
+import CadastroAssento from './views/cadastro-assento';
 
 
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
@@ -26,10 +27,11 @@ function Rotas(props) {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path='/cadastro-assento/:idParam?' element={<CadastroAssento />} />
         <Route path='/cadastro-genero/:idParam?' element={<CadastroGenero />} />
 
       
-        <Route path='/listagem-assentos' element={<ListagemAssento />} />
+        <Route path='/listagem-assentos' element={<ListagemAssento/>} />
         <Route path='/listagem-classificacoes-indicativa' element={<ListagemClassificacaoIndicativa />} />
         <Route path='/listagem-clientes' element={<ListagemCliente />} />
         <Route path='/listagem-filmes' element={<ListagemFilme />} />

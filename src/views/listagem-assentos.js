@@ -17,11 +17,11 @@ function ListagemAssento() {
   const navigate = useNavigate();
 
   const cadastrar = () => {
-    navigate(`/cadastro-unidades`);
+    navigate(`/cadastro-assento`);
   };
 
   const editar = (id) => {
-    navigate(`/cadastro-unidades/${id}`);
+    navigate(`/cadastro-assento/${id}`);
   };
 
   const [dados, setDados] = React.useState(null);
@@ -64,84 +64,46 @@ function ListagemAssento() {
               <button
                 type='button'
                 class='btn btn-warning'
-              onClick={() => cadastrar()}
+                onClick={() => cadastrar()}
               >
                 Novo Assento
               </button>
-{/* 
-<table className='table table-hover'>
-  <thead>
-    <tr>
-      <th scope='col'>Número do Assento</th>
-      <th scope='col'>ID do Tipo de Assento</th>
-      <th scope='col'>ID da Sala</th>
-      <th scope='col'>Ações</th>
-    </tr>
-  </thead>
-  <tbody>
-    {dados.map((dado) => (
-      <tr key={dado.id}>
-        <td>{dado.numeroAssento}</td>
-        <td>{dado.idTipoAssento}</td>
-        <td>{dado.idSala}</td>
-        <td>
-          <Stack spacing={1} padding={0} direction='row'>
-            <IconButton
-              aria-label='edit'
-              onClick={() => editar(dado.id)}
-            >
-              <EditIcon />
-            </IconButton>
-            <IconButton
-              aria-label='delete'
-              onClick={() => excluir(dado.id)}
-            >
-              <DeleteIcon />
-            </IconButton>
-          </Stack>
-        </td>
-      </tr>
-    ))}
-  </tbody>
-</table> 
-*/}
 
-<table className='table table-hover'>
-  <thead>
-    <tr>
-      <th scope='col'>Número do Assento</th>
-      <th scope='col'>Tipo de Assento</th>
-      <th scope='col'>Número da Sala</th>
-      <th scope='col'>Ações</th>
-    </tr>
-  </thead>
-  <tbody>
-    {[
-      { id: 1, numeroAssento: 1, idTipoAssento: "Normal", idSala: 201 },
-      { id: 2, numeroAssento: 2, idTipoAssento: "Normal", idSala: 201 },
-      { id: 3, numeroAssento: 3, idTipoAssento: "Preferencial", idSala: 201 },
-      { id: 4, numeroAssento: 4, idTipoAssento: "Normal", idSala: 201 },
-      { id: 5, numeroAssento: 5, idTipoAssento: "Normal", idSala: 201 },
-      { id: 6, numeroAssento: 6, idTipoAssento: "Preferencial", idSala: 201 }
-    ].map((dado) => (
-      <tr key={dado.id}>
-        <td>{dado.numeroAssento}</td>
-        <td>{dado.idTipoAssento}</td>
-        <td>{dado.idSala}</td>
-        <td>
-          <Stack spacing={1} padding={0} direction='row'>
-            <IconButton aria-label='edit' onClick={() => alert(`Editar ID: ${dado.id}`)}>
-              <EditIcon />
-            </IconButton>
-            <IconButton aria-label='delete' onClick={() => alert(`Excluir ID: ${dado.id}`)}>
-              <DeleteIcon />
-            </IconButton>
-          </Stack>
-        </td>
-      </tr>
-    ))}
-  </tbody>
-</table>
+              <table className='table table-hover'>
+                <thead>
+                  <tr>
+                    <th scope='col'>Número do Assento</th>
+                    <th scope='col'>ID do Tipo de Assento</th>
+                    <th scope='col'>ID da Sala</th>
+                    <th scope='col'>Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {dados.map((dado) => (
+                    <tr key={dado.id}>
+                      <td>{dado.numeroAssento}</td>
+                      <td>{dado.idTipoAssento}</td>
+                      <td>{dado.idSala}</td>
+                      <td>
+                        <Stack spacing={1} padding={0} direction='row'>
+                          <IconButton
+                            aria-label='edit'
+                            onClick={() => editar(dado.id)}
+                          >
+                            <EditIcon />
+                          </IconButton>
+                          <IconButton
+                            aria-label='delete'
+                            onClick={() => excluir(dado.id)}
+                          >
+                            <DeleteIcon />
+                          </IconButton>
+                        </Stack>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
         </div>

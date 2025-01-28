@@ -16,11 +16,11 @@ function ListagemClassificacaoIndicativa() {
   const navigate = useNavigate();
 
   const cadastrar = () => {
-    navigate(`/cadastro-classficacao-indicativa`);
+    navigate(`/cadastro-classificacao-indicativa`);
   };
 
   const editar = (id) => {
-    navigate(`/cadastro-classficacao-indicativa/${id}`);
+    navigate(`/cadastro-classificacao-indicativa/${id}`);
   };
 
   const [dados, setDados] = React.useState(null);

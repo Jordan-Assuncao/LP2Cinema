@@ -5,7 +5,7 @@ import NavbarItem from './navbarItem';
 
 function Navbar(props) {
   return (
-    <div className='navbar navbar-expand-lg fixed-top navbar-dark bg-primary'>
+    <div className='navbar navbar-expand-lg fixed-top navbar-dark bg-primary pb-1'>
       <div className='container'>
         <a href='/' className='navbar-brand'>
           CINEMA

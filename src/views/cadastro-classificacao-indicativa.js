@@ -5,23 +5,17 @@ import Card from '../components/card';
 import FormGroup from '../components/formGroup';
 import Stack from '@mui/material/Stack';
 
-
 import axios from 'axios';
 import { BASE_URL3 } from '../config/axios';
-
+const baseURL = `${BASE_URL3}/ClassificacoesIndicativas`;
 
 function CadastroClassificacaoIndicativa(){
-    
-    const baseURL = `${BASE_URL3}/ClassificacoesIndicativas`;
-
     const { idParam } = useParams();
-    
     const navigate = useNavigate();
 
     const [id, setId] = useState('');
     const [faixaEtaria, setFaixaEtaria] = useState('');
 
-  
     const [dados, setDados] = React.useState([]);
   
     function inicializar() {
@@ -126,6 +120,4 @@ function CadastroClassificacaoIndicativa(){
       </div>
     );
 }
-
-
 export default CadastroClassificacaoIndicativa;

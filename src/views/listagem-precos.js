@@ -71,7 +71,7 @@ function ListagemPreco() {
               <table className='table table-hover'>
                 <thead>
                   <tr>
-                    <th scope='col'>Valor Inteira</th>
+                    <th scope='col'>Valor Inteira (R$)</th>
                     <th scope='col'>Ações</th>
                   </tr>
                 </thead>

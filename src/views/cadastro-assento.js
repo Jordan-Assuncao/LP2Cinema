@@ -5,18 +5,13 @@ import Card from '../components/card';
 import FormGroup from '../components/formGroup';
 import Stack from '@mui/material/Stack';
 
-
 import axios from 'axios';
 import { BASE_URL2 } from '../config/axios';
+const baseURL = `${BASE_URL2}/Assentos`;
 
-
-
-function CadastroAssento(){
+function CadastroAssento() {
   const { idParam } = useParams();
-
   const navigate = useNavigate();
-
-  const baseURL = `${BASE_URL2}/Assentos`;
 
   const [id, setId] = useState('');
   const [numeroAssento, setNumeroAssento] = useState('');
@@ -97,7 +92,7 @@ function CadastroAssento(){
   useEffect(() => {
     // Só buscar dados se for uma edição (idParam não for null)
     if (idParam) {
-      buscar(); 
+      buscar();
     } else {
       inicializar();
     } // eslint-disable-next-line
@@ -196,9 +191,4 @@ function CadastroAssento(){
     </div>
   );
 }
-
-    
-
-
-
 export default CadastroAssento;

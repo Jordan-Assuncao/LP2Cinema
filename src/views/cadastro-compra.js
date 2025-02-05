@@ -123,14 +123,19 @@ function CadastroCompra(){
                   label='Cliente: *'
                   htmlFor='inputIdCliente'
                 >
-                  <input
+                  <select
                     type='number'
                     id='inputIdCliente'
                     value={idCliente}
-                    className='form-control'
+                    className='form-select'
                     name='idCliente'
                     onChange={(e) => setIdCliente(e.target.value)}
-                  />
+                  >
+                    <option value="">Selecione um Cliente</option>
+                      <option key={idCliente} value={idCliente}>
+                        {idCliente}
+                      </option>
+                </select>
                 </FormGroup>
                 <Stack spacing={1} padding={1} direction='row'>
                   <button

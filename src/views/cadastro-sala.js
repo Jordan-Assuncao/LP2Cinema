@@ -177,14 +177,19 @@ function CadastroSala(){
                   />
                 </FormGroup>
                 <FormGroup label='Unidade: *' htmlFor='inputIdUnidade'>
-                  <input
+                  <select
                     type='text'
                     id='inputIdUnidade'
                     value={idUnidade}
-                    className='form-control'
+                    className='form-select'
                     name='idUnidade'
                     onChange={(e) => setIdUnidade(e.target.value)}
-                  />
+                  >
+                    <option value="">Selecione uma Unidade</option>
+                      <option key={idUnidade} value={idUnidade}>
+                        {idUnidade}
+                      </option>
+                </select>
                 </FormGroup>
                 <Stack spacing={1} padding={1} direction='row'>
                   <button

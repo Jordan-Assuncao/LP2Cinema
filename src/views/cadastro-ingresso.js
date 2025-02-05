@@ -78,7 +78,7 @@ function CadastroIngresso(){
         setDados(response.data);
       });
       setId(dados.id);
-      setTipoIngresso(dados.tipoIngresso);
+      setTipoIngresso(dados.tipoIngresso === 1);
       setIdAssento(dados.idAssento);
       setIdSessao(dados.idSessao);
       setIdCompra(dados.idCompra);
@@ -101,54 +101,79 @@ function CadastroIngresso(){
           <div className='row'>
             <div className='col-lg-12'>
               <div className='bs-component'>
-                <FormGroup label='Tipo do Ingresso: *' htmlFor='inputTipoIngresso'>
-                  <input
-                    type='text'
-                    id='inputTipoIngresso'
-                    value={tipoIngresso}
-                    className='form-control'
-                    name='tipoIngresso'
-                    onChange={(e) => setTipoIngresso(e.target.value)}
-                  />
-                </FormGroup>
+              <FormGroup label="Tipo do Ingresso? *">
+                <div className="d-flex align-items-center gap-3">
+                  <div>
+                    <input
+                      type="checkbox"
+                      id="inteira"
+                      checked={tipoIngresso === true}
+                      onChange={() => setTipoIngresso(true)}
+                    />
+                    <label htmlFor="Inteira" className="ms-2">Inteira</label>
+                  </div>
+                  <div>
+                    <input
+                      type="checkbox"
+                      id="meia"
+                      checked={tipoIngresso === false}
+                      onChange={() => setTipoIngresso(false)}
+                    />
+                    <label htmlFor="Meia" className="ms-2">Meia</label>
+                  </div>
+                </div>
+              </FormGroup>
                 <FormGroup
                   label='Assento: *'
                   htmlFor='inputIdAssento'
                 >
-                  <input
+                  <select
                     type='text'
                     id='inputIdAssento'
                     value={idAssento}
-                    className='form-control'
+                    className='form-select'
                     name='idAssento'
                     onChange={(e) => setIdAssento(e.target.value)}
-                  />
+                  >
+                    <option value="">Selecione um Assento</option>
+                      <option key={idAssento} value={idAssento}>
+                        {idAssento}
+                      </option>
+                </select>
                 </FormGroup>
                 <FormGroup
                   label='Sessao: *'
                   htmlFor='inputIdSessao'
                 >
-                  <input
+                  <select
                     type='text'
                     id='inputIdSessao'
                     value={idSessao}
-                    className='form-control'
+                    className='form-select'
                     name='idSessao'
                     onChange={(e) => setIdSessao(e.target.value)}
-                  />
+                  ><option value="">Selecione uma Sessão</option>
+                  <option key={idSessao} value={idSessao}>
+                    {idSessao}
+                  </option>
+            </select>
                 </FormGroup>
                 <FormGroup
                   label='Compra: *'
                   htmlFor='inputIdCompra'
                 >
-                  <input
+                  <select
                     type='text'
                     id='inputIdCompra'
                     value={idCompra}
-                    className='form-control'
+                    className='form-select'
                     name='idCompra'
                     onChange={(e) => setIdCompra(e.target.value)}
-                  />
+                  ><option value="">Selecione uma Compra</option>
+                  <option key={idCompra} value={idCompra}>
+                    {idCompra}
+                  </option>
+            </select>
                 </FormGroup>
                 <Stack spacing={1} padding={1} direction='row'>
                   <button

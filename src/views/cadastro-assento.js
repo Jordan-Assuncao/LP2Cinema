@@ -116,57 +116,73 @@ function CadastroAssento() {
                   onChange={(e) => setNumeroAssento(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup
-                label='Número da sala: *'
-                htmlFor='inputIdSala'
-              >
-                <input
-                  type='number'
-                  id='inputIdSala'
+              <FormGroup label="Número da sala: *" htmlFor="inputIdSala">
+                <select
+                  id="inputIdSala"
                   value={idSala}
-                  className='form-control'
-                  name='idSala'
+                  className="form-select"
+                  name="idSala"
                   onChange={(e) => setIdSala(e.target.value)}
-                />
+                >
+                  <option value="">Selecione uma sala</option>
+                      <option key={idSala} value={idSala}>
+                        {idSala}
+                      </option>
+                </select>
               </FormGroup>
               <FormGroup
                 label='Posição Fileira Vertical: *'
                 htmlFor='inputFileiraVertical'
               >
-                <input
+                <select
                   type='number'
                   id='inputFileiraVertical'
                   value={fileiraVertical}
-                  className='form-control'
+                  className='form-select'
                   name='fileiraVertical'
                   onChange={(e) => setFileiraVertical(e.target.value)}
-                />
+                >
+                  <option value="">Selecione uma Fileira Vertical</option>
+                      <option key={fileiraVertical} value={fileiraVertical}>
+                        {fileiraVertical}
+                      </option>
+                </select>
               </FormGroup>
               <FormGroup
                 label='Posição Fileira Horizontal: *'
                 htmlFor='inputFileiraHorizontal'
               >
-                <input
+                <select
                   type='number'
                   id='inputFileiraHorizontal'
                   value={fileiraHorizontal}
-                  className='form-control'
+                  className='form-select'
                   name='fileiraHorizontal'
                   onChange={(e) => setFileiraHorizontal(e.target.value)}
-                />
+                >
+                  <option value="">Selecione uma Fileira Horizontal</option>
+                      <option key={fileiraHorizontal} value={fileiraHorizontal}>
+                        {fileiraHorizontal}
+                      </option>
+                </select>
               </FormGroup>
               <FormGroup
                 label='Tipo do Assento: *'
                 htmlFor='inputTipoAssento'
               >
-                <input
+                <select
                   type='number'
                   id='inputTipoAssento'
                   value={idTipoAssento}
-                  className='form-control'
+                  className='form-select'
                   name='idTipoAssento'
                   onChange={(e) => setIdTipoAssento(e.target.value)}
-                />
+                >
+                  <option value="">Selecione um Tipo de Assento</option>
+                      <option key={idTipoAssento} value={idTipoAssento}>
+                        {idTipoAssento}
+                      </option>
+                </select>
               </FormGroup>
               <Stack spacing={1} padding={1} direction='row'>
                 <button

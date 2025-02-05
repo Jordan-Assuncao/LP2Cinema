@@ -159,14 +159,19 @@ function CadastroFilme(){
                   label='Classificação Indicativa: *'
                   htmlFor='inputClassificacaoIndicativa'
                 >
-                  <input
+                  <select
                     type='text'
                     id='inputClassificacaoIndicativa'
                     value={idClassificacaoIndicativa}
                     className='form-control'
                     name='classificacaoIndicativa'
                     onChange={(e) => setIdClassificacaoIndicativa(e.target.value)}
-                  />
+                  >
+                    <option value="">Selecione uma Classificação Indicativa</option>
+                      <option key={idClassificacaoIndicativa} value={idClassificacaoIndicativa}>
+                        {idClassificacaoIndicativa}
+                      </option>
+                </select>
                 </FormGroup>
                 <Stack spacing={1} padding={1} direction='row'>
                   <button

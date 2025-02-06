@@ -72,7 +72,7 @@ function ListagemSala() {
                 <thead>
                   <tr>
                     <th scope='col'>Número da Sala</th>
-                    <th scope='col'>ID da Unidade</th>
+                    <th scope='col'>Unidade</th>
                     <th scope='col'>Ações</th>
                   </tr>
                 </thead>

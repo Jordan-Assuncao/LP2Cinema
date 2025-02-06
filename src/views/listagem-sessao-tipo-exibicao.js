@@ -70,8 +70,8 @@ function ListagemSessaoTipoExibicao() {
               <table className='table table-hover'>
                 <thead>
                   <tr>
-                    <th scope='col'>ID Sessão</th>
-                    <th scope='col'>ID Tipo de Exibição</th>
+                    <th scope='col'>Sessão</th>
+                    <th scope='col'>Tipo de Exibição</th>
                     <th scope='col'>Ações</th>
                   </tr>
                 </thead>

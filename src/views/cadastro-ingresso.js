@@ -101,7 +101,7 @@ function CadastroIngresso(){
           <div className='row'>
             <div className='col-lg-12'>
               <div className='bs-component'>
-              <FormGroup label="Tipo do Ingresso? *">
+              <FormGroup label="Tipo do Ingresso: *">
                 <div className="d-flex align-items-center gap-3">
                   <div>
                     <input

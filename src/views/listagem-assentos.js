@@ -73,8 +73,8 @@ function ListagemAssento() {
                 <thead>
                   <tr>
                     <th scope='col'>Número do Assento</th>
-                    <th scope='col'>ID do Tipo de Assento</th>
-                    <th scope='col'>ID da Sala</th>
+                    <th scope='col'>Tipo de Assento</th>
+                    <th scope='col'>Sala</th>
                     <th scope='col'>Ações</th>
                   </tr>
                 </thead>

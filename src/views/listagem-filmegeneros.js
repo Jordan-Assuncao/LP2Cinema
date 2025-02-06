@@ -70,8 +70,8 @@ function ListagemFilmeGenero() {
               <table className='table table-hover'>
                 <thead>
                   <tr>
-                    <th scope='col'>ID Filme</th>
-                    <th scope='col'>ID Genero</th>
+                    <th scope='col'>Filme</th>
+                    <th scope='col'>Genero</th>
                     <th scope='col'>Ações</th>
                   </tr>
                 </thead>

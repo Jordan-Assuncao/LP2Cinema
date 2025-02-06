@@ -73,9 +73,9 @@ function ListagemSessao() {
                     <th scope='col'>Data</th>
                     <th scope='col'>Hora</th>
                     <th scope='col'>Status</th>
-                    <th scope='col'>ID da Sala</th>
-                    <th scope='col'>ID do Preço</th>
-                    <th scope='col'>ID do Filme</th>
+                    <th scope='col'>Sala</th>
+                    <th scope='col'>Preço</th>
+                    <th scope='col'>Filme</th>
                     <th scope='col'>Ações</th>
                   </tr>
                 </thead>

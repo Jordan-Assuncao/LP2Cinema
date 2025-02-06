@@ -72,7 +72,7 @@ function ListagemCompra() {
                   <tr>
                     <th scope='col'>Data</th>
                     <th scope='col'>Valor Total</th>
-                    <th scope='col'>ID Cliente</th>
+                    <th scope='col'>Cliente</th>
                     <th scope='col'>Ações</th>
                   </tr>
                 </thead>

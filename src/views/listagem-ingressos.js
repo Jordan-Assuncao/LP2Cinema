@@ -71,9 +71,9 @@ function ListagemIngresso() {
                 <thead>
                   <tr>
                     <th scope='col'>Tipo Ingresso</th>
-                    <th scope='col'>ID Assento</th>
-                    <th scope='col'>ID Sessão</th>
-                    <th scope='col'>ID Compra</th>
+                    <th scope='col'>Assento</th>
+                    <th scope='col'>Sessão</th>
+                    <th scope='col'>Compra</th>
                     <th scope='col'>Ações</th>
                   </tr>
                 </thead>

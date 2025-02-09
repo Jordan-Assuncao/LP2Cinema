@@ -142,7 +142,7 @@ function CadastroCliente(){
                 htmlFor='inputSenha'
               >
                 <input
-                  type='number'
+                  type='password'
                   id='inputSenha'
                   value={senha}
                   className='form-control'

@@ -118,7 +118,7 @@ function CadastroUsuarioAdmin(){
                 </FormGroup>
                 <FormGroup label='Senha: *' htmlFor='inputSenha'>
                   <input
-                    type='text'
+                    type='password'
                     id='inputSenha'
                     value={senha}
                     className='form-control'

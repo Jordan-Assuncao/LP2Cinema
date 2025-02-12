@@ -72,6 +72,9 @@ function ListagemIngresso() {
                   <tr>
                     <th scope='col'>Tipo Ingresso</th>
                     <th scope='col'>Assento</th>
+                    <th scope='col'>Sala</th>
+                    <th scope='col'>Filme</th>
+                    <th scope='col'>Unidade</th>
                     <th scope='col'>Sessão</th>
                     <th scope='col'>Compra</th>
                     <th scope='col'>Ações</th>
@@ -80,8 +83,11 @@ function ListagemIngresso() {
                 <tbody>
                   {dados.map((dado) => (
                     <tr key={dado.id}>
-                      <td>{dado.tipoIngresso}</td>
+                      <td>{dado.tipoIngresso  === 1 ? 'Inteira' : 'Meia'}</td>
                       <td>{dado.idAssento}</td>
+                      <td>{dado.idSala}</td>
+                      <td>{dado.idFilme}</td>
+                      <td>{dado.idUnidade}</td>
                       <td>{dado.idSessao}</td>
                       <td>{dado.idCompra}</td>
                       <td>

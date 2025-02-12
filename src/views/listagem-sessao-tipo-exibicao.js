@@ -71,6 +71,9 @@ function ListagemSessaoTipoExibicao() {
                 <thead>
                   <tr>
                     <th scope='col'>Sessão</th>
+                    <th scope='col'>Data</th>
+                    <th scope='col'>Hora</th>
+                    <th scope='col'>Filme</th>
                     <th scope='col'>Tipo de Exibição</th>
                     <th scope='col'>Ações</th>
                   </tr>
@@ -79,6 +82,9 @@ function ListagemSessaoTipoExibicao() {
                   {dados.map((dado) => (
                     <tr key={dado.id}>
                       <td>{dado.idSessao}</td>
+                      <td>{dado.dataSessao}</td>
+                      <td>{dado.horaSessao}</td>
+                      <td>{dado.idFilme}</td>
                       <td>{dado.idTipoExibicao}</td>
                       <td>
                         <Stack spacing={1} padding={0} direction='row'>

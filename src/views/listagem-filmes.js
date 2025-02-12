@@ -72,6 +72,7 @@ function ListagemFilme() {
                   <tr>
                     <th scope='col'>Título</th>
                     <th scope='col'>Duração(Min.)</th>
+                    <th scope='col'>Classificação</th>
                     <th scope='col'>Ações</th>
                   </tr>
                 </thead>
@@ -80,6 +81,7 @@ function ListagemFilme() {
                     <tr key={dado.id}>
                       <td>{dado.titulo}</td>
                       <td>{dado.duracao}</td>
+                      <td>{dado.idClassificacaoIndicativa}</td>
                       <td>
                         <Stack spacing={1} padding={0} direction='row'>
                           <IconButton

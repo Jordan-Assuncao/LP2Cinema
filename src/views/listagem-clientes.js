@@ -73,6 +73,7 @@ function ListagemCliente() {
                   <tr>
                     <th scope='col'>Nome</th>
                     <th scope='col'>CPF</th>
+                    <th scope='col'>E-mail</th>
                     <th scope='col'>Ações</th>
                   </tr>
                 </thead>
@@ -81,6 +82,7 @@ function ListagemCliente() {
                     <tr key={dado.id}>
                       <td>{dado.nome}</td>
                       <td>{dado.cpf}</td>
+                      <td>{dado.email}</td>
                       <td>
                         <Stack spacing={1} padding={0} direction='row'>
                           <IconButton

@@ -71,6 +71,7 @@ function ListagemClassificacaoIndicativa() {
                 <thead>
                   <tr>
                     <th scope='col'>Faixa Etária</th>
+                    <th scope='col'>Descrição</th>
                     <th scope='col'>Ações</th>
                   </tr>
                 </thead>
@@ -78,6 +79,7 @@ function ListagemClassificacaoIndicativa() {
                   {dados.map((dado) => (
                     <tr key={dado.id}>
                       <td>{dado.faixaEtaria}</td>
+                      <td>{dado.descricao}</td>
                       <td>
                         <Stack spacing={1} padding={0} direction='row'>
                           <IconButton

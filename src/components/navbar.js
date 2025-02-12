@@ -22,14 +22,7 @@ function Navbar(props) {
           <span className='navbar-toggler-icon'></span>
         </button>
         <div className='collapse navbar-collapse' id='navbarResponsive'>
-        <ul className='navbar-nav'>
-            <NavbarItem
-              render='true'
-              href='/listagem-usuariosadmin'
-              label='Admins'
-            />
-          </ul>
-        <ul className='navbar-nav'>
+          <ul className='navbar-nav'>
             <NavbarItem
               render='true'
               href='/listagem-unidades'
@@ -102,6 +95,13 @@ function Navbar(props) {
           <ul className='navbar-nav'>
             <NavbarItem
               render='true'
+              href='/listagem-usuariosadmin'
+              label='Admins'
+            />
+          </ul>
+          <ul className='navbar-nav'>
+            <NavbarItem
+              render='true'
               href='/listagem-clientes'
               label='Clientes'
             />
@@ -120,20 +120,20 @@ function Navbar(props) {
               label='Compras'
             />
           </ul>
-          <ul className='navbar-nav'>
+          {/*<ul className='navbar-nav'>
             <NavbarItem
               render='true'
               href='/listagem-filmegeneros'
               label='Filme Gêneros'
             />
-          </ul>
-          <ul className='navbar-nav'>
+          </ul>*/}
+          {/*<ul className='navbar-nav'>
             <NavbarItem
               render='true'
               href='/listagem-sessao-tipo-exibicao'
               label='Tipos de Exibicao da Sessão'
             />
-          </ul>
+          </ul>*/}
           <ul className='navbar-nav'>
             <NavbarItem render='true' href='/login' label='Entrar' />
           </ul>

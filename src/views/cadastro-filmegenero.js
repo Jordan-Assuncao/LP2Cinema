@@ -7,6 +7,7 @@ import Stack from '@mui/material/Stack';
 
 import axios from 'axios';
 import { BASE_URL4 } from '../config/axios';
+import { BASE_URL3 } from '../config/axios';
 const baseURL = `${BASE_URL4}/FilmeGeneros`;
 
 function CadastroFilmeGenero() {
@@ -83,6 +84,24 @@ function CadastroFilmeGenero() {
     } // eslint-disable-next-line
   }, [id]);
 
+  const [dadosFilmes, setDadosFilmes] = React.useState(null);
+
+  useEffect(() => {
+    axios.get(`${BASE_URL3}/filmes`).then((response) => {
+      setDadosFilmes(response.data);
+    });
+  }, []);
+
+  const [dadosGeneros, setDadosGeneros] = React.useState(null);
+
+  useEffect(() => {
+    axios.get(`${BASE_URL3}/Generos`).then((response) => {
+      setDadosGeneros(response.data);
+    });
+  }, []);
+
+  if (!dadosFilmes) return null;
+  if (!dadosGeneros) return null;
   if (!dados) return null;
 
   return (
@@ -104,6 +123,11 @@ function CadastroFilmeGenero() {
                   <option key={idFilme} value={idFilme}>
                     {idFilme}
                   </option>
+                  {dadosFilmes.map((dado) => (
+                    <option key={dado.titulo} value={dado.titulo}>
+                      {dado.titulo}
+                    </option>
+                  ))}
                 </select>
               </FormGroup>
               <FormGroup
@@ -122,6 +146,11 @@ function CadastroFilmeGenero() {
                   <option key={idGenero} value={idGenero}>
                     {idGenero}
                   </option>
+                  {dadosGeneros.map((dado) => (
+                    <option key={dado.nomeGenero} value={dado.nomeGenero}>
+                      {dado.nomeGenero}
+                    </option>
+                  ))}
                 </select>
               </FormGroup>
               <Stack spacing={1} padding={1} direction='row'>

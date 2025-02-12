@@ -7,6 +7,8 @@ import Stack from '@mui/material/Stack';
 
 import axios from 'axios';
 import { BASE_URL4 } from '../config/axios';
+import { BASE_URL } from '../config/axios';
+
 const baseURL = `${BASE_URL4}/SessaoTipoExibicao`;
 
 function CadastroSessaoTipoExibicao() {
@@ -83,6 +85,24 @@ function CadastroSessaoTipoExibicao() {
     } // eslint-disable-next-line
   }, [id]);
 
+  const [dadosSessao, setDadosSessao] = React.useState(null);
+
+  useEffect(() => {
+    axios.get(`${BASE_URL}/sessoes`).then((response) => {
+      setDadosSessao(response.data);
+    });
+  }, []);
+
+  const [dadosTipoExibicao, setDadosTipoExibicao] = React.useState(null);
+
+  useEffect(() => {
+    axios.get(`${BASE_URL}/TiposDeExibicao`).then((response) => {
+      setDadosTipoExibicao(response.data);
+    });
+  }, []);
+
+  if (!dadosTipoExibicao) return null;
+  if (!dadosSessao) return null;
   if (!dados) return null;
 
   return (
@@ -104,6 +124,11 @@ function CadastroSessaoTipoExibicao() {
                   <option key={idSessao} value={idSessao}>
                     {idSessao}
                   </option>
+                  {dadosSessao.map((dado) => (
+                    <option key={dado.id} value={dado.id}>
+                      {dado.id}
+                    </option>
+                  ))}
                 </select>
               </FormGroup>
               <FormGroup label='Formato de Exibição: *' htmlFor='inputIdTipoExibicao'>
@@ -119,6 +144,11 @@ function CadastroSessaoTipoExibicao() {
                   <option key={idTipoExibicao} value={idTipoExibicao}>
                     {idTipoExibicao}
                   </option>
+                  {dadosTipoExibicao.map((dado) => (
+                    <option key={dado.formatoExibicao} value={dado.formatoExibicao}>
+                      {dado.formatoExibicao}
+                    </option>
+                  ))}
                 </select>
               </FormGroup>
               <Stack spacing={1} padding={1} direction='row'>

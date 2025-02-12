@@ -72,6 +72,7 @@ function ListagemPreco() {
                 <thead>
                   <tr>
                     <th scope='col'>Valor Inteira (R$)</th>
+                    <th scope='col'>Descrição</th>
                     <th scope='col'>Ações</th>
                   </tr>
                 </thead>
@@ -79,6 +80,7 @@ function ListagemPreco() {
                   {dados.map((dado) => (
                     <tr key={dado.id}>
                       <td>{dado.valorInteira}</td>
+                      <td>{dado.descricao}</td>
                       <td>
                         <Stack spacing={1} padding={0} direction='row'>
                           <IconButton

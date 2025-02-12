@@ -75,6 +75,7 @@ function ListagemAssento() {
                     <th scope='col'>Número do Assento</th>
                     <th scope='col'>Tipo de Assento</th>
                     <th scope='col'>Sala</th>
+                    <th scope='col'>Unidade</th>
                     <th scope='col'>Ações</th>
                   </tr>
                 </thead>
@@ -84,6 +85,7 @@ function ListagemAssento() {
                       <td>{dado.numeroAssento}</td>
                       <td>{dado.idTipoAssento}</td>
                       <td>{dado.idSala}</td>
+                      <td>{dado.idUnidade}</td>
                       <td>
                         <Stack spacing={1} padding={0} direction='row'>
                           <IconButton

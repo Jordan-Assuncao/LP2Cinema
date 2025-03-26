@@ -117,6 +117,14 @@ function CadastroFilme() {
 
   const [generosSelecionados, setGenerosSelecionados] = useState([]);
 
+  const handleSelecionarGenero = (id) => {
+    setGenerosSelecionados((prev) => [...prev, id]);
+  };
+
+  const handleRemoverGenero = (id) => {
+    setGenerosSelecionados((prev) => prev.filter((generoId) => generoId !== id));
+  };
+
   if (!dadosGeneros) return null;
   if (!dadosClassificacaoIndicativa) return null;
   if (!dados) return null;
@@ -197,27 +205,34 @@ function CadastroFilme() {
                 </select>
               </FormGroup>
               <FormGroup label="Gênero do Filme: *" htmlFor="inputGeneros">
-                <div className="d-flex gap-3">
-                  {dadosGeneros.map((genero) => (
-                    <div key={genero.id} className="form-check">
-                      <input
-                        type="checkbox"
-                        className="form-check-input"
-                        id={`genero-${genero.id}`}
-                        value={genero.id}
-                        checked={generosSelecionados.includes(genero.id)}  /* Verifica se o ID está selecionado */
-                        onChange={(e) => {
-                          const newGeneros = e.target.checked
-                            ? [...generosSelecionados, genero.id]  // Adiciona o ID se estiver marcado
-                            : generosSelecionados.filter(id => id !== genero.id);  // Remove o ID se estiver desmarcado
-                          setGenerosSelecionados(newGeneros);  // Atualiza o estado
-                        }}
-                      />
-                      <label className="form-check-label" htmlFor={`genero-${genero.id}`}>
-                        {genero.nomeGenero}
-                      </label>
-                    </div>
-                  ))}
+                <div className="row">
+                  {/* Gêneros Disponíveis */}
+                  <div className="col-md-6">
+                    <label className="fw-bold text-center d-block">Gêneros Disponíveis:</label>
+                    <select multiple className="form-control" size="5" style={{ width: "100%" }}>
+                      {dadosGeneros
+                        .filter((genero) => !generosSelecionados.includes(genero.id))
+                        .map((genero) => (
+                          <option key={genero.id} onClick={() => handleSelecionarGenero(genero.id)}>
+                            {genero.nomeGenero}
+                          </option>
+                        ))}
+                    </select>
+                  </div>
+
+                  {/* Gêneros Selecionados */}
+                  <div className="col-md-6">
+                    <label className="fw-bold text-center d-block">Gêneros Selecionados:</label>
+                    <select multiple className="form-control" size="5" style={{ width: "100%" }}>
+                      {dadosGeneros
+                        .filter((genero) => generosSelecionados.includes(genero.id))
+                        .map((genero) => (
+                          <option key={genero.id} onClick={() => handleRemoverGenero(genero.id)}>
+                            {genero.nomeGenero}
+                          </option>
+                        ))}
+                    </select>
+                  </div>
                 </div>
               </FormGroup>
               <Stack spacing={1} padding={1} direction='row'>

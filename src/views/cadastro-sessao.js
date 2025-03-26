@@ -19,6 +19,8 @@ function CadastroSessao() {
   const [dataSessao, setDataSessao] = useState('');
   const [horaSessao, setHoraSessao] = useState('');
   const [statusSessao, setStatusSessao] = useState('');
+  const [dublado, setDublado] = useState('');
+  const [legendado, setLegendado] = useState('');
   const [idUnidade, setIdUnidade] = useState('');
   const [idSala, setIdSala] = useState('');
   const [idPreco, setIdPreco] = useState('');
@@ -32,6 +34,8 @@ function CadastroSessao() {
       setDataSessao('');
       setHoraSessao('');
       setStatusSessao('');
+      setDublado('');
+      setLegendado('');
       setIdSala('');
       setIdPreco('');
       setIdFilme('');
@@ -41,6 +45,8 @@ function CadastroSessao() {
       setDataSessao(dados.dataSessao);
       setHoraSessao(dados.horaSessao);
       setStatusSessao(dados.statusSessao);
+      setDublado(dados.dublado);
+      setLegendado(dados.legendado);
       setIdSala(dados.idSala);
       setIdPreco(dados.idPreco);
       setIdFilme(dados.idFilme);
@@ -54,6 +60,8 @@ function CadastroSessao() {
       dataSessao,
       horaSessao,
       statusSessao,
+      dublado,
+      legendado,
       idSala,
       idPreco,
       idFilme,
@@ -95,6 +103,8 @@ function CadastroSessao() {
     setDataSessao(dados.dataSessao);
     setHoraSessao(dados.horaSessao);
     setStatusSessao(dados.statusSessao);
+    setDublado(dados.dublado);
+    setLegendado(dados.legendado);
     setIdSala(dados.idSala);
     setIdPreco(dados.idPreco);
     setIdFilme(dados.idFilme);
@@ -226,6 +236,30 @@ function CadastroSessao() {
                       onChange={() => setStatusSessao(false)}
                     />
                     <label htmlFor="Inativa" className="ms-2">Inativa</label>
+                  </div>
+                </div>
+              </FormGroup>
+              <FormGroup label="Aúdio *">
+                <div className="d-flex align-items-center gap-3">
+                  <div>
+                    <input
+                      type="checkbox"
+                      className="form-check-input"
+                      id="Dublado"
+                      checked={dublado === true}
+                      onChange={() => setDublado(!dublado)}
+                    />
+                    <label htmlFor="Dublado" className="ms-2">Dublado</label>
+                  </div>
+                  <div>
+                    <input
+                      type="checkbox"
+                      className="form-check-input"
+                      id="Legendado"
+                      checked={legendado === true}
+                      onChange={() => setLegendado(!legendado)}
+                    />
+                    <label htmlFor="Legendado" className="ms-2">Legendado</label>
                   </div>
                 </div>
               </FormGroup>

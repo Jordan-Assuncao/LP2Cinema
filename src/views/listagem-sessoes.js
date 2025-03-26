@@ -73,6 +73,8 @@ function ListagemSessao() {
                     <th scope='col'>Data</th>
                     <th scope='col'>Hora</th>
                     <th scope='col'>Status</th>
+                    <th scope='col'>DUB.</th>
+                    <th scope='col'>LEG.</th>
                     <th scope='col'>Unidade</th>
                     <th scope='col'>Sala</th>
                     <th scope='col'>Preço</th>
@@ -86,6 +88,8 @@ function ListagemSessao() {
                       <td>{dado.dataSessao}</td>
                       <td>{dado.horaSessao}</td>
                       <td>{dado.statusSessao ? 'Ativa' : 'Inativa'}</td>
+                      <td>{dado.dublado ? 'Sim' : 'Não'}</td>
+                      <td>{dado.legendado ? 'Sim' : 'Não'}</td>
                       <td>{dado.idUnidade}</td>
                       <td>{dado.idSala}</td>
                       <td>{dado.idPreco}</td>

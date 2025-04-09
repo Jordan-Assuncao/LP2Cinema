@@ -16,6 +16,7 @@ function CadastroCliente(){
   const [id, setId] = useState('');
   const [nome, setNome] = useState('');
   const [cpf, setCpf] = useState("");
+  const [telefone, setTelefone] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
 
@@ -26,12 +27,14 @@ function CadastroCliente(){
       setId('');
       setNome('');
       setCpf('');
+      setTelefone('');
       setEmail('');
       setSenha('');
     } else {
       setId(dados.id);
       setNome(dados.nome);
       setCpf(dados.cpf);
+      setTelefone(dados.telefone);
       setEmail(dados.email);
       setSenha(dados.senha);
     }
@@ -42,6 +45,7 @@ function CadastroCliente(){
       id,
       nome,
       cpf,
+      telefone,
       email,
       senha,
     };
@@ -80,6 +84,7 @@ function CadastroCliente(){
     setId(dados.id);
     setNome(dados.nome);
     setCpf(dados.cpf);
+    setTelefone(dados.telefone);
     setEmail(dados.email);
     setSenha(dados.senha);
   }
@@ -122,6 +127,16 @@ function CadastroCliente(){
                   className='form-control'
                   name='cpf'
                   onChange={(e) => setCpf(e.target.value)}
+                />
+              </FormGroup>
+              <FormGroup label='Telefone: *' htmlFor='inputTelefone'>
+                <input
+                  type='text'
+                  id='inputTelefone'
+                  value={telefone}
+                  className='form-control'
+                  name='telefone'
+                  onChange={(e) => setTelefone(e.target.value)}
                 />
               </FormGroup>
               <FormGroup

@@ -72,6 +72,7 @@ function ListagemUnidade() {
                   <tr>
                     <th scope='col'>Nome da Unidade</th>
                     <th scope='col'>CNPJ</th>
+                    <th scope='col'>Telefone</th>
                     <th scope='col'>Ações</th>
                   </tr>
                 </thead>
@@ -80,6 +81,7 @@ function ListagemUnidade() {
                     <tr key={dado.id}>
                       <td>{dado.nomeUnidade}</td>
                       <td>{dado.cnpj}</td>
+                      <td>{dado.telefone}</td>
                       <td>
                         <Stack spacing={1} padding={0} direction='row'>
                           <IconButton

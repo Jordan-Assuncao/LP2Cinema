@@ -17,6 +17,7 @@ function CadastroUnidade() {
   const [nomeUnidade, setNomeUnidade] = useState('');
   const [cnpj, setCnpj] = useState('');
   const [email, setEmail] = useState('');
+  const [telefone, setTelefone] = useState('');
   const [logradouro, setLogradouro] = useState('');
   const [numero, setNumero] = useState('');
   const [complemento, setComplemento] = useState('');
@@ -33,6 +34,7 @@ function CadastroUnidade() {
       setNomeUnidade('');
       setCnpj('');
       setEmail('');
+      setTelefone('');
       setLogradouro('');
       setNumero('');
       setComplemento('');
@@ -45,6 +47,7 @@ function CadastroUnidade() {
       setNomeUnidade(dados.nomeUnidade);
       setCnpj(dados.cnpj);
       setEmail(dados.email);
+      setTelefone(dados.telefone);
       setLogradouro(dados.logradouro);
       setNumero(dados.numero);
       setComplemento(dados.complemento);
@@ -61,6 +64,7 @@ function CadastroUnidade() {
       nomeUnidade,
       cnpj,
       email,
+      telefone,
       logradouro,
       numero,
       complemento,
@@ -105,6 +109,7 @@ function CadastroUnidade() {
     setNomeUnidade(dados.nomeUnidade);
     setCnpj(dados.cnpj);
     setEmail(dados.email);
+    setTelefone(dados.telefone);
     setLogradouro(dados.logradouro);
     setNumero(dados.numero);
     setComplemento(dados.complemento);
@@ -159,6 +164,16 @@ function CadastroUnidade() {
                   className='form-control'
                   name='email'
                   onChange={(e) => setEmail(e.target.value)}
+                />
+              </FormGroup>
+              <FormGroup label='Telefone: *' htmlFor='inputTelefone'>
+                <input
+                  type='text'
+                  id='inputTelefone'
+                  value={telefone}
+                  className='form-control'
+                  name='telefone'
+                  onChange={(e) => setTelefone(e.target.value)}
                 />
               </FormGroup>
               <FormGroup label='Logradouro: *' htmlFor='inputLogradouro'>

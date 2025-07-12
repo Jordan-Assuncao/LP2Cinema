@@ -7,7 +7,7 @@ import Stack from '@mui/material/Stack';
 
 import axios from 'axios';
 import { BASE_URL2 } from '../config/axios';
-const baseURL = `${BASE_URL2}/Assentos`;
+const baseURL = `${BASE_URL2}/assentos`;
 
 function CadastroAssento() {
   const { idParam } = useParams();
@@ -114,7 +114,7 @@ function CadastroAssento() {
   const [dadosTipoAssento, setDadosTipoAssento] = React.useState(null);
 
   useEffect(() => {
-    axios.get(`${BASE_URL2}/tiposDeAssento`).then((response) => {
+    axios.get(`${BASE_URL2}/tipoassentos`).then((response) => {
       setDadosTipoAssento(response.data);
     });
   }, []);
@@ -122,7 +122,7 @@ function CadastroAssento() {
   const [dadosUnidades, setDadosUnidades] = React.useState(null);
 
   useEffect(() => {
-    axios.get(`${BASE_URL2}/Unidades`).then((response) => {
+    axios.get(`${BASE_URL2}/unidades`).then((response) => {
       setDadosUnidades(response.data);
     });
   }, []);

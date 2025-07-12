@@ -7,7 +7,7 @@ import Stack from '@mui/material/Stack';
 
 import axios from 'axios';
 import { BASE_URL2 } from '../config/axios';
-const baseURL = `${BASE_URL2}/cinemaAdmins`;
+const baseURL = `${BASE_URL2}/cinemaadmins`;
 
 function CadastroUsuarioAdmin() {
   const { idParam } = useParams();

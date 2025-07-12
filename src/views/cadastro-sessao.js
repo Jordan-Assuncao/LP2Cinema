@@ -123,7 +123,7 @@ function CadastroSessao() {
   const [dadosUnidades, setDadosUnidades] = React.useState(null);
 
   useEffect(() => {
-    axios.get(`${BASE_URL2}/Unidades`).then((response) => {
+    axios.get(`${BASE_URL2}/unidades`).then((response) => {
       setDadosUnidades(response.data);
     });
   }, []);
@@ -157,7 +157,7 @@ function CadastroSessao() {
 
   // Exemplo de carregamento dos tipos de exibição
   useEffect(() => {
-    axios.get(`${BASE_URL}/tiposDeExibicao`).then((response) => {
+    axios.get(`${BASE_URL}/tipoexibicoes`).then((response) => {
       setDadosTipoExibicao(response.data);
     });
   }, []);

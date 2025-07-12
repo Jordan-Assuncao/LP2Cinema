@@ -7,7 +7,7 @@ import Stack from '@mui/material/Stack';
 
 import axios from 'axios';
 import { BASE_URL } from '../config/axios';
-const baseURL = `${BASE_URL}/Compras`;
+const baseURL = `${BASE_URL}/compras`;
 
 function CadastroCompra() {
   const { idParam } = useParams();

@@ -111,7 +111,7 @@ function CadastroSala() {
   const [dadosUnidades, setDadosUnidades] = React.useState(null);
 
   useEffect(() => {
-    axios.get(`${BASE_URL2}/Unidades`).then((response) => {
+    axios.get(`${BASE_URL2}/unidades`).then((response) => {
       setDadosUnidades(response.data);
     });
   }, []);
@@ -139,7 +139,7 @@ function CadastroSala() {
                     {idUnidade}
                   </option>
                   {dadosUnidades.map((dado) => (
-                    <option key={dado.nomeUnidade} value={dado.nomeUnidade}>
+                    <option key={dado.idUnidade} value={dado.idUnidade}>
                       {dado.nomeUnidade}
                     </option>
                   ))}

@@ -10,7 +10,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import axios from 'axios';
 import { BASE_URL2 } from '../config/axios';
 
-const baseURL = `${BASE_URL2}/tiposDeAssento`;
+const baseURL = `${BASE_URL2}/tipoassentos`;
 
 function ListagemTipoDeAssento() {
   const navigate = useNavigate();

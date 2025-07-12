@@ -8,7 +8,7 @@ import Stack from '@mui/material/Stack';
 import axios from 'axios';
 import { BASE_URL } from '../config/axios';
 import { BASE_URL2 } from '../config/axios';
-const baseURL = `${BASE_URL}/Ingressos`;
+const baseURL = `${BASE_URL}/ingressos`;
 
 function CadastroIngresso() {
   const { idParam } = useParams();
@@ -112,7 +112,7 @@ function CadastroIngresso() {
   const [dadosAssentos, setDadosAssentos] = React.useState(null);
 
   useEffect(() => {
-    axios.get(`${BASE_URL2}/Assentos`).then((response) => {
+    axios.get(`${BASE_URL2}/assentos`).then((response) => {
       setDadosAssentos(response.data);
     });
   }, []);
@@ -128,7 +128,7 @@ function CadastroIngresso() {
   const [dadosUnidades, setDadosUnidades] = React.useState(null);
 
   useEffect(() => {
-    axios.get(`${BASE_URL2}/Unidades`).then((response) => {
+    axios.get(`${BASE_URL2}/unidades`).then((response) => {
       setDadosUnidades(response.data);
     });
   }, []);

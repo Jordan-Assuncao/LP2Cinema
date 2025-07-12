@@ -9,7 +9,7 @@ import axios from 'axios';
 import { BASE_URL4 } from '../config/axios';
 import { BASE_URL } from '../config/axios';
 
-const baseURL = `${BASE_URL4}/SessaoTipoExibicao`;
+const baseURL = `${BASE_URL4}/sessaotipoexibicoes`;
 
 function CadastroSessaoTipoExibicao() {
   const { idParam } = useParams();

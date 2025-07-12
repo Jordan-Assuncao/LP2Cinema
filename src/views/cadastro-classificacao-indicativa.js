@@ -7,7 +7,7 @@ import Stack from '@mui/material/Stack';
 
 import axios from 'axios';
 import { BASE_URL3 } from '../config/axios';
-const baseURL = `${BASE_URL3}/ClassificacoesIndicativas`;
+const baseURL = `${BASE_URL3}/classificacaoindicativas`;
 
 function CadastroClassificacaoIndicativa() {
   const { idParam } = useParams();

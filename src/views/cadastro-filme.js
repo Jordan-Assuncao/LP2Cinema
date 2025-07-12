@@ -101,7 +101,7 @@ function CadastroFilme() {
   const [dadosClassificacaoIndicativa, setDadosClassificacaoIndicativa] = React.useState(null);
 
   useEffect(() => {
-    axios.get(`${BASE_URL3}/ClassificacoesIndicativas`).then((response) => {
+    axios.get(`${BASE_URL3}/classificacaoindicativas`).then((response) => {
       setDadosClassificacaoIndicativa(response.data);
     });
   }, []);
@@ -110,7 +110,7 @@ function CadastroFilme() {
 
   // Exemplo de carregamento dos tipos de exibição
   useEffect(() => {
-    axios.get(`${BASE_URL3}/Generos`).then((response) => {
+    axios.get(`${BASE_URL3}/generos`).then((response) => {
       setDadosGeneros(response.data);
     });
   }, []);

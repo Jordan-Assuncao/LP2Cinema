@@ -7,7 +7,7 @@ import Stack from '@mui/material/Stack';
 
 import axios from 'axios';
 import { BASE_URL } from '../config/axios';
-const baseURL = `${BASE_URL}/TiposDeExibicao`;
+const baseURL = `${BASE_URL}/tipoexibicoes`;
 
 function CadastroFormatoExibicao() {
   const { idParam } = useParams();

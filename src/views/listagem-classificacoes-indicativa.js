@@ -10,7 +10,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import axios from 'axios';
 import { BASE_URL3 } from '../config/axios';
 
-const baseURL = `${BASE_URL3}/classificacoesIndicativas`;
+const baseURL = `${BASE_URL3}/classificacaoindicativas`;
 
 function ListagemClassificacaoIndicativa() {
   const navigate = useNavigate();

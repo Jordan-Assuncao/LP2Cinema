@@ -8,7 +8,7 @@ import Stack from '@mui/material/Stack';
 import axios from 'axios';
 import { BASE_URL4 } from '../config/axios';
 import { BASE_URL3 } from '../config/axios';
-const baseURL = `${BASE_URL4}/FilmeGeneros`;
+const baseURL = `${BASE_URL4}/filmegeneros`;
 
 function CadastroFilmeGenero() {
   const { idParam } = useParams();

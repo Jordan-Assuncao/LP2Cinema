@@ -172,11 +172,8 @@ function CadastroIngresso() {
                   onChange={(e) => setIdUnidade(e.target.value)}
                 >
                   <option value="">Selecione uma Unidade</option>
-                  <option key={idUnidade} value={idUnidade}>
-                    {idUnidade}
-                  </option>
                   {dadosUnidades.map((dado) => (
-                    <option key={dado.nomeUnidade} value={dado.nomeUnidade}>
+                    <option key={dado.id} value={dado.id}>
                       {dado.nomeUnidade}
                     </option>
                   ))}
@@ -191,11 +188,8 @@ function CadastroIngresso() {
                   onChange={(e) => setIdSala(e.target.value)}
                 >
                   <option value="">Selecione uma Sala</option>
-                  <option key={idSala} value={idSala}>
-                    {idSala}
-                  </option>
                   {dadosSalas.map((dado) => (
-                    <option key={dado.numeroSala} value={dado.numeroSala}>
+                    <option key={dado.id} value={dado.id}>
                       {dado.numeroSala}
                     </option>
                   ))}
@@ -213,12 +207,9 @@ function CadastroIngresso() {
                   name='idSessao'
                   onChange={(e) => setIdSessao(e.target.value)}
                 ><option value="">Selecione uma Sessão</option>
-                  <option key={idSessao} value={idSessao}>
-                    {idSessao}
-                  </option>
                   {dadosSessao.map((dado) => (
                     <option key={dado.id} value={dado.id}>
-                      {dado.id}
+                      {dado.dataSessao +" "+ dado.horaSessao +"| Unidade: "+ dado.nomeUnidade +"| Sala: "+ dado.numeroSala + "| Filme:"+ dado.titulo}
                     </option>
                   ))}
                 </select>
@@ -236,11 +227,8 @@ function CadastroIngresso() {
                   onChange={(e) => setIdAssento(e.target.value)}
                 >
                   <option value="">Selecione um Assento</option>
-                  <option key={idAssento} value={idAssento}>
-                    {idAssento}
-                  </option>
                   {dadosAssentos.map((dado) => (
-                    <option key={dado.numeroAssento} value={dado.numeroAssento}>
+                    <option key={dado.id} value={dado.id}>
                       {dado.numeroAssento}
                     </option>
                   ))}
@@ -270,7 +258,7 @@ function CadastroIngresso() {
                   </div>
                 </div>
               </FormGroup>
-              {/*<FormGroup
+              {<FormGroup
                 label='Compra: *'
                 htmlFor='inputIdCompra'
               >
@@ -282,16 +270,13 @@ function CadastroIngresso() {
                   name='idCompra'
                   onChange={(e) => setIdCompra(e.target.value)}
                 ><option value="">Selecione uma Compra</option>
-                  <option key={idCompra} value={idCompra}>
-                    {idCompra}
-                  </option>
                   {dadosCompra.map((dado) => (
                     <option key={dado.id} value={dado.id}>
-                      {dado.id}
+                      {dado.dataCompra + "| Cliente: "+ dado.nome + "| CPF: "+ dado.cpf}
                     </option>
                   ))}
                 </select>
-              </FormGroup>*/}
+              </FormGroup>}
               <Stack spacing={1} padding={1} direction='row'>
                 <button
                   onClick={salvar}

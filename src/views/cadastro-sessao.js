@@ -185,11 +185,8 @@ function CadastroSessao() {
                   onChange={(e) => setIdUnidade(e.target.value)}
                 >
                   <option value="">Selecione uma Unidade</option>
-                  <option key={idUnidade} value={idUnidade}>
-                    {idUnidade}
-                  </option>
                   {dadosUnidades.map((dado) => (
-                    <option key={dado.nomeUnidade} value={dado.nomeUnidade}>
+                    <option key={dado.id} value={dado.id}>
                       {dado.nomeUnidade}
                     </option>
                   ))}
@@ -273,11 +270,8 @@ function CadastroSessao() {
                   onChange={(e) => setIdSala(e.target.value)}
                 >
                   <option value="">Selecione uma Sala</option>
-                  <option key={idSala} value={idSala}>
-                    {idSala}
-                  </option>
                   {dadosSalas.map((dado) => (
-                    <option key={dado.numeroSala} value={dado.numeroSala}>
+                    <option key={dado.id} value={dado.id}>
                       {dado.numeroSala}
                     </option>
                   ))}
@@ -293,11 +287,8 @@ function CadastroSessao() {
                   onChange={(e) => setIdPreco(e.target.value)}
                 >
                   <option value="">Selecione um Preço</option>
-                  <option key={idPreco} value={idPreco}>
-                    {idPreco}
-                  </option>
                   {dadosPrecos.map((dado) => (
-                    <option key={dado.valorInteira} value={dado.valorInteira}>
+                    <option key={dado.id} value={dado.id}>
                       {dado.valorInteira}
                     </option>
                   ))}
@@ -313,11 +304,8 @@ function CadastroSessao() {
                   onChange={(e) => setIdFilme(e.target.value)}
                 >
                   <option value="">Selecione um Filme</option>
-                  <option key={idFilme} value={idFilme}>
-                    {idFilme}
-                  </option>
                   {dadosFilmes.map((dado) => (
-                    <option key={dado.titulo} value={dado.titulo}>
+                    <option key={dado.id} value={dado.id}>
                       {dado.titulo}
                     </option>
                   ))}

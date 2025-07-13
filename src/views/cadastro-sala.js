@@ -20,7 +20,7 @@ function CadastroSala() {
   const [formatoSala, setFormatoSala] = useState('');
   const [numeroFileiraVertical, setNumeroFileiraVertical] = useState('');
   const [numeroFileiraHorizontal, setNumeroFileiraHorizontal] = useState('');
-  const [idUnidade, setIdUnidade] = useState('');
+  const [idUnidade, setIdUnidade] = useState(Number);
 
   const [dados, setDados] = React.useState([]);
 
@@ -108,7 +108,7 @@ function CadastroSala() {
     } // eslint-disable-next-line
   }, [id]);
 
-  const [dadosUnidades, setDadosUnidades] = React.useState(null);
+  const [dadosUnidades, setDadosUnidades] = React.useState([]);
 
   useEffect(() => {
     axios.get(`${BASE_URL2}/unidades`).then((response) => {
@@ -135,11 +135,8 @@ function CadastroSala() {
                   onChange={(e) => setIdUnidade(e.target.value)}
                 >
                   <option value="">Selecione uma Unidade</option>
-                  <option key={idUnidade} value={idUnidade}>
-                    {idUnidade}
-                  </option>
                   {dadosUnidades.map((dado) => (
-                    <option key={dado.idUnidade} value={dado.idUnidade}>
+                    <option key={dado.id} value={dado.id}>
                       {dado.nomeUnidade}
                     </option>
                   ))}

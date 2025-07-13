@@ -7,7 +7,9 @@ import Stack from '@mui/material/Stack';
 
 import axios from 'axios';
 import { BASE_URL3 } from '../config/axios';
+import { BASE_URL4 } from '../config/axios';
 const baseURL = `${BASE_URL3}/filmes`;
+const baseURL4 = `${BASE_URL4}/filmegeneros`;
 
 function CadastroFilme() {
   const { idParam } = useParams();
@@ -50,30 +52,46 @@ function CadastroFilme() {
       idClassificacaoIndicativa
     };
     data = JSON.stringify(data);
+
     if (idParam == null) {
-      await axios
-        .post(baseURL, data, {
+      try {
+        const response = await axios.post(baseURL, data, {
           headers: { 'Content-Type': 'application/json' },
-        })
-        .then(function (response) {
-          mensagemSucesso(`Filme ${id} cadastrado com sucesso!`);
-          navigate(`/listagem-filmes`);
-        })
-        .catch(function (error) {
-          mensagemErro(error.response.data);
         });
+        const filmeSalvo = response.data;
+        const idFilme = filmeSalvo.id;
+
+        if (generosSelecionados.length > 0) {
+          const vinculos = generosSelecionados.map((id) => ({
+            idFilme,
+            idGenero: id
+          }));
+
+          await axios.post(`${baseURL4}/filmegeneros/lote`, vinculos, {
+            headers: { 'Content-Type': 'application/json' },
+          });
+
+          mensagemSucesso(`Filme ${filmeSalvo.titulo} cadastrado com sucesso!`);
+        } else {
+          mensagemSucesso(`Filme ${filmeSalvo.titulo} cadastrado sem gêneros!`);
+        }
+
+        navigate(`/listagem-filmes`);
+      } catch (error) {
+        mensagemErro(error?.response?.data || 'Erro ao salvar o filme');
+      }
+
     } else {
-      await axios
-        .put(`${baseURL}/${idParam}`, data, {
+      // Edição
+      try {
+        await axios.put(`${baseURL}/${idParam}`, data, {
           headers: { 'Content-Type': 'application/json' },
-        })
-        .then(function (response) {
-          mensagemSucesso(`Filme ${id} alterado com sucesso!`);
-          navigate(`/listagem-filmes`);
-        })
-        .catch(function (error) {
-          mensagemErro(error.response.data);
         });
+        mensagemSucesso(`Filme ${titulo} alterado com sucesso!`);
+        navigate(`/listagem-filmes`);
+      } catch (error) {
+        mensagemErro(error?.response?.data || 'Erro ao editar o filme');
+      }
     }
   }
 
@@ -122,7 +140,7 @@ function CadastroFilme() {
   };
 
   const handleRemoverGenero = (id) => {
-    setGenerosSelecionados((prev) => prev.filter((generoId) => generoId !== id));
+    setGenerosSelecionados((prev) => prev.filter((idGenero) => idGenero !== id));
   };
 
   if (!dadosGeneros) return null;
@@ -198,7 +216,7 @@ function CadastroFilme() {
                 >
                   <option value="">Selecione uma Classificação Indicativa</option>
                   {dadosClassificacaoIndicativa.map((dado) => (
-                    <option key={dado.faixaEtaria} value={dado.faixaEtaria}>
+                    <option key={dado.id} value={dado.id}>
                       {dado.faixaEtaria}
                     </option>
                   ))}
@@ -213,13 +231,12 @@ function CadastroFilme() {
                       {dadosGeneros
                         .filter((genero) => !generosSelecionados.includes(genero.id))
                         .map((genero) => (
-                          <option key={genero.id} onClick={() => handleSelecionarGenero(genero.id)}>
+                          <option key={genero.id} value={genero.id} onClick={() => handleSelecionarGenero(genero.id)}>
                             {genero.nomeGenero}
                           </option>
                         ))}
                     </select>
                   </div>
-
                   {/* Gêneros Selecionados */}
                   <div className="col-md-6">
                     <label className="fw-bold text-center d-block">Gêneros Selecionados:</label>
@@ -227,7 +244,7 @@ function CadastroFilme() {
                       {dadosGeneros
                         .filter((genero) => generosSelecionados.includes(genero.id))
                         .map((genero) => (
-                          <option key={genero.id} onClick={() => handleRemoverGenero(genero.id)}>
+                          <option key={genero.id} value={genero.id} onClick={() => handleRemoverGenero(genero.id)}>
                             {genero.nomeGenero}
                           </option>
                         ))}

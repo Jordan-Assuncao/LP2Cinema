@@ -60,14 +60,17 @@ function CadastroFilme() {
         });
         const filmeSalvo = response.data;
         const idFilme = filmeSalvo.id;
+        console.log('Filme salvo:', response.data);
+        console.log('ID do Filme:', idFilme);
 
         if (generosSelecionados.length > 0) {
-          const vinculos = generosSelecionados.map((id) => ({
+          let vinculos = generosSelecionados.map((idGenero) => ({
             idFilme,
-            idGenero: id
+            idGenero
           }));
-
-          await axios.post(`${baseURL4}/filmegeneros/lote`, vinculos, {
+          vinculos = JSON.stringify(vinculos)
+          console.log('Vinculos:', vinculos);
+          await axios.post(`${baseURL4}/lote`, vinculos, {
             headers: { 'Content-Type': 'application/json' },
           });
 
@@ -96,15 +99,26 @@ function CadastroFilme() {
   }
 
   async function buscar() {
-    await axios.get(`${baseURL}/${idParam}`).then((response) => {
-      setDados(response.data);
-    });
-    setId(dados.id);
-    setTitulo(dados.titulo);
-    setSinopse(dados.sinopse);
-    setDuracao(dados.duracao);
-    setCartaz(dados.cartaz);
-    setIdClassificacaoIndicativa(dados.idClassificacaoIndicativa);
+    try {
+      await axios.get(`${baseURL}/${idParam}`).then((response) => {
+        setDados(response.data);
+      });
+      setId(dados.id);
+      setTitulo(dados.titulo);
+      setSinopse(dados.sinopse);
+      setDuracao(dados.duracao);
+      setCartaz(dados.cartaz);
+      setIdClassificacaoIndicativa(dados.idClassificacaoIndicativa);
+      // 2. Buscar vínculos de gêneros do filme (ajuste o endpoint conforme o seu backend)
+      //const responseVinculos = await axios.get(`${baseURL4}/filme/${idParam}`);
+      //const vinculos = responseVinculos.data;
+
+      // Supondo que cada item tem: { idFilme, idGenero }
+      //const idsDosGeneros = vinculos.map(v => v.idGenero);
+      //setGenerosSelecionados(idsDosGeneros);
+    } catch (error) {
+      console.error("Erro ao buscar filme:", error);
+    }
   }
 
   useEffect(() => {
@@ -227,24 +241,43 @@ function CadastroFilme() {
                   {/* Gêneros Disponíveis */}
                   <div className="col-md-6">
                     <label className="fw-bold text-center d-block">Gêneros Disponíveis:</label>
-                    <select multiple className="form-control" size="5" style={{ width: "100%" }}>
+                    <select
+                      multiple
+                      className="form-control"
+                      size="5"
+                      style={{ width: "100%" }}
+                      onChange={(e) => {
+                        const selecionados = Array.from(e.target.selectedOptions, (option) => parseInt(option.value));
+                        selecionados.forEach((id) => handleSelecionarGenero(id));
+                      }}
+                    >
                       {dadosGeneros
                         .filter((genero) => !generosSelecionados.includes(genero.id))
                         .map((genero) => (
-                          <option key={genero.id} value={genero.id} onClick={() => handleSelecionarGenero(genero.id)}>
+                          <option key={genero.id} value={genero.id}>
                             {genero.nomeGenero}
                           </option>
                         ))}
                     </select>
                   </div>
+
                   {/* Gêneros Selecionados */}
                   <div className="col-md-6">
                     <label className="fw-bold text-center d-block">Gêneros Selecionados:</label>
-                    <select multiple className="form-control" size="5" style={{ width: "100%" }}>
+                    <select
+                      multiple
+                      className="form-control"
+                      size="5"
+                      style={{ width: "100%" }}
+                      onChange={(e) => {
+                        const selecionados = Array.from(e.target.selectedOptions, (option) => parseInt(option.value));
+                        selecionados.forEach((id) => handleRemoverGenero(id));
+                      }}
+                    >
                       {dadosGeneros
                         .filter((genero) => generosSelecionados.includes(genero.id))
                         .map((genero) => (
-                          <option key={genero.id} value={genero.id} onClick={() => handleRemoverGenero(genero.id)}>
+                          <option key={genero.id} value={genero.id}>
                             {genero.nomeGenero}
                           </option>
                         ))}

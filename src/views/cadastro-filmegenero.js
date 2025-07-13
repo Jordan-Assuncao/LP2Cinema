@@ -120,11 +120,8 @@ function CadastroFilmeGenero() {
                   onChange={(e) => setIdFilme(e.target.value)}
                 >
                   <option value="">Selecione um Filme</option>
-                  <option key={idFilme} value={idFilme}>
-                    {idFilme}
-                  </option>
                   {dadosFilmes.map((dado) => (
-                    <option key={dado.titulo} value={dado.titulo}>
+                    <option key={dado.id} value={dado.id}>
                       {dado.titulo}
                     </option>
                   ))}
@@ -143,11 +140,8 @@ function CadastroFilmeGenero() {
                   onChange={(e) => setIdGenero(e.target.value)}
                 >
                   <option value="">Selecione um Gênero</option>
-                  <option key={idGenero} value={idGenero}>
-                    {idGenero}
-                  </option>
                   {dadosGeneros.map((dado) => (
-                    <option key={dado.nomeGenero} value={dado.nomeGenero}>
+                    <option key={dado.id} value={dado.id}>
                       {dado.nomeGenero}
                     </option>
                   ))}

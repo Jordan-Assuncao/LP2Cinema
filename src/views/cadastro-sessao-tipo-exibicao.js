@@ -121,9 +121,6 @@ function CadastroSessaoTipoExibicao() {
                   onChange={(e) => setIdSessao(e.target.value)}
                 >
                   <option value="">Selecione uma Sessao</option>
-                  <option key={idSessao} value={idSessao}>
-                    {idSessao}
-                  </option>
                   {dadosSessao.map((dado) => (
                     <option key={dado.id} value={dado.id}>
                       {dado.id}
@@ -141,11 +138,8 @@ function CadastroSessaoTipoExibicao() {
                   onChange={(e) => setIdTipoExibicao(e.target.value)}
                 >
                   <option value="">Selecione um Tipo de Exibição</option>
-                  <option key={idTipoExibicao} value={idTipoExibicao}>
-                    {idTipoExibicao}
-                  </option>
                   {dadosTipoExibicao.map((dado) => (
-                    <option key={dado.formatoExibicao} value={dado.formatoExibicao}>
+                    <option key={dado.id} value={dado.id}>
                       {dado.formatoExibicao}
                     </option>
                   ))}

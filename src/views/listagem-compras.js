@@ -63,7 +63,7 @@ function ListagemCompra() {
               <button
                 type='button'
                 class='btn btn-warning'
-              onClick={() => cadastrar()}
+                onClick={() => cadastrar()}
               >
                 Nova Compra
               </button>
@@ -71,7 +71,7 @@ function ListagemCompra() {
                 <thead>
                   <tr>
                     <th scope='col'>Data</th>
-                    <th scope='col'>Valor Total</th>
+                    <th scope='col'>Valor Total (R$)</th>
                     <th scope='col'>Cliente</th>
                     <th scope='col'>Ações</th>
                   </tr>
@@ -80,19 +80,21 @@ function ListagemCompra() {
                   {dados.map((dado) => (
                     <tr key={dado.id}>
                       <td>{dado.dataCompra}</td>
-                      <td>{dado.valorTotal}</td>
-                      <td>{dado.idCliente}</td>
+                      <td>
+                        {Number(dado.valorTotal).toFixed(2).replace('.', ',')}
+                      </td>
+                      <td>{dado.nome}</td>
                       <td>
                         <Stack spacing={1} padding={0} direction='row'>
                           <IconButton
                             aria-label='edit'
-                          onClick={() => editar(dado.id)}
+                            onClick={() => editar(dado.id)}
                           >
                             <EditIcon />
                           </IconButton>
                           <IconButton
                             aria-label='delete'
-                          onClick={() => excluir(dado.id)}
+                            onClick={() => excluir(dado.id)}
                           >
                             <DeleteIcon />
                           </IconButton>

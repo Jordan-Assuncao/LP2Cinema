@@ -80,7 +80,7 @@ function ListagemSala() {
                   {dados.map((dado) => (
                     <tr key={dado.id}>
                       <td>{dado.numeroSala}</td>
-                      <td>{dado.idUnidade}</td>
+                      <td>{dado.nomeUnidade}</td>
                       <td>
                         <Stack spacing={1} padding={0} direction='row'>
                           <IconButton

@@ -63,7 +63,7 @@ function ListagemSessao() {
               <button
                 type='button'
                 class='btn btn-warning'
-              onClick={() => cadastrar()}
+                onClick={() => cadastrar()}
               >
                 Nova Sessão
               </button>
@@ -77,7 +77,7 @@ function ListagemSessao() {
                     <th scope='col'>LEG.</th>
                     <th scope='col'>Unidade</th>
                     <th scope='col'>Sala</th>
-                    <th scope='col'>Preço</th>
+                    <th scope='col'>Preço (R$)</th>
                     <th scope='col'>Filme</th>
                     <th scope='col'>Ações</th>
                   </tr>
@@ -90,21 +90,23 @@ function ListagemSessao() {
                       <td>{dado.statusSessao ? 'Ativa' : 'Inativa'}</td>
                       <td>{dado.dublado ? 'Sim' : 'Não'}</td>
                       <td>{dado.legendado ? 'Sim' : 'Não'}</td>
-                      <td>{dado.idUnidade}</td>
-                      <td>{dado.idSala}</td>
-                      <td>{dado.idPreco}</td>
-                      <td>{dado.idFilme}</td>
+                      <td>{dado.nomeUnidade}</td>
+                      <td>{dado.numeroSala}</td>
+                      <td>
+                        {Number(dado.valorInteira).toFixed(2).replace('.', ',')}
+                      </td>
+                      <td>{dado.titulo}</td>
                       <td>
                         <Stack spacing={1} padding={0} direction='row'>
                           <IconButton
                             aria-label='edit'
-                          onClick={() => editar(dado.id)}
+                            onClick={() => editar(dado.id)}
                           >
                             <EditIcon />
                           </IconButton>
                           <IconButton
                             aria-label='delete'
-                          onClick={() => excluir(dado.id)}
+                            onClick={() => excluir(dado.id)}
                           >
                             <DeleteIcon />
                           </IconButton>

@@ -91,7 +91,7 @@ function CadastroCompra() {
   const [dadosClientes, setDadosClientes] = React.useState(null);
 
   useEffect(() => {
-    axios.get(`${BASE_URL}/Clientes`).then((response) => {
+    axios.get(`${BASE_URL}/clientes`).then((response) => {
       setDadosClientes(response.data);
     });
   }, []);
@@ -141,9 +141,6 @@ function CadastroCompra() {
                   onChange={(e) => setIdCliente(e.target.value)}
                 >
                   <option value="">Selecione um Cliente</option>
-                  <option key={idCliente} value={idCliente}>
-                    {idCliente}
-                  </option>
                   {dadosClientes.map((dado) => (
                     <option key={dado.nome} value={dado.nome}>
                       {dado.nome}

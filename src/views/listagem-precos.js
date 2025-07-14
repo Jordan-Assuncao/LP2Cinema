@@ -64,7 +64,7 @@ function ListagemPreco() {
               <button
                 type='button'
                 class='btn btn-warning'
-              onClick={() => cadastrar()}
+                onClick={() => cadastrar()}
               >
                 Novo Preço
               </button>
@@ -79,19 +79,21 @@ function ListagemPreco() {
                 <tbody>
                   {dados.map((dado) => (
                     <tr key={dado.id}>
-                      <td>{dado.valorInteira}</td>
+                      <td>
+                        {Number(dado.valorInteira).toFixed(2).replace('.', ',')}
+                      </td>
                       <td>{dado.descricao}</td>
                       <td>
                         <Stack spacing={1} padding={0} direction='row'>
                           <IconButton
                             aria-label='edit'
-                          onClick={() => editar(dado.id)}
+                            onClick={() => editar(dado.id)}
                           >
                             <EditIcon />
                           </IconButton>
                           <IconButton
                             aria-label='delete'
-                          onClick={() => excluir(dado.id)}
+                            onClick={() => excluir(dado.id)}
                           >
                             <DeleteIcon />
                           </IconButton>

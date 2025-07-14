@@ -84,11 +84,11 @@ function ListagemIngresso() {
                   {dados.map((dado) => (
                     <tr key={dado.id}>
                       <td>{dado.tipoIngresso  === 1 ? 'Inteira' : 'Meia'}</td>
-                      <td>{dado.idAssento}</td>
-                      <td>{dado.idSala}</td>
-                      <td>{dado.idFilme}</td>
-                      <td>{dado.idUnidade}</td>
-                      <td>{dado.idSessao}</td>
+                      <td>{dado.numeroAssento}</td>
+                      <td>{dado.numeroSala}</td>
+                      <td>{dado.titulo}</td>
+                      <td>{dado.nomeUnidade}</td>
+                      <td>{dado.horaSessao +" "+ dado.dataSessao}</td>
                       <td>{dado.idCompra}</td>
                       <td>
                         <Stack spacing={1} padding={0} direction='row'>

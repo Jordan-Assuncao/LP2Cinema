@@ -15,7 +15,7 @@ function CadastroUsuarioAdmin() {
 
   const [id, setId] = useState('');
   const [nomeCinema, setNomeCinema] = useState('');
-  const [login, setLogin] = useState('');
+  const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
 
   const [dados, setDados] = React.useState([]);
@@ -24,12 +24,12 @@ function CadastroUsuarioAdmin() {
     if (idParam == null) {
       setId('');
       setNomeCinema('');
-      setLogin('');
+      setEmail('');
       setSenha('');
     } else {
       setId(dados.id);
       setNomeCinema(dados.nomeCinema);
-      setLogin(dados.login);
+      setEmail(dados.email);
       setSenha(dados.senha);
     }
   }
@@ -38,7 +38,7 @@ function CadastroUsuarioAdmin() {
     let data = {
       id,
       nomeCinema,
-      login,
+      email,
       senha
     };
     data = JSON.stringify(data);
@@ -49,7 +49,7 @@ function CadastroUsuarioAdmin() {
         })
         .then(function (response) {
           mensagemSucesso(`Administrador ${nomeCinema} cadastrado com sucesso!`);
-          navigate(`/listagem-usuarioadmin`);
+          navigate(`/listagem-usuariosadmin`);
         })
         .catch(function (error) {
           mensagemErro(error.response.data);
@@ -61,7 +61,7 @@ function CadastroUsuarioAdmin() {
         })
         .then(function (response) {
           mensagemSucesso(`Administrador ${nomeCinema} alterado com sucesso!`);
-          navigate(`/listagem-usuarioadmin`);
+          navigate(`/listagem-usuariosadmin`);
         })
         .catch(function (error) {
           mensagemErro(error.response.data);
@@ -75,7 +75,7 @@ function CadastroUsuarioAdmin() {
     });
     setId(dados.id);
     setNomeCinema(dados.nomeCinema);
-    setLogin(dados.login);
+    setEmail(dados.email);
     setSenha(dados.senha);
   }
 
@@ -110,10 +110,10 @@ function CadastroUsuarioAdmin() {
                 <input
                   type='text'
                   id='inputLogin'
-                  value={login}
+                  value={email}
                   className='form-control'
                   name='login'
-                  onChange={(e) => setLogin(e.target.value)}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </FormGroup>
               <FormGroup label='Senha: *' htmlFor='inputSenha'>

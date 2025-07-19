@@ -10,7 +10,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import axios from 'axios';
 import { BASE_URL2 } from '../config/axios';
 
-const baseURL = `${BASE_URL2}/cinemaAdmins`;
+const baseURL = `${BASE_URL2}/cinemaadmins`;
 
 function ListagemUsuarioAdmin() {
   const navigate = useNavigate();
@@ -72,6 +72,7 @@ function ListagemUsuarioAdmin() {
                 <thead>
                   <tr>
                     <th scope='col'>Nome do Cinema</th>
+                    <th scope='col'>Email</th>
                     <th scope='col'>Ações</th>
                   </tr>
                 </thead>
@@ -79,6 +80,7 @@ function ListagemUsuarioAdmin() {
                   {dados.map((dado) => (
                     <tr key={dado.id}>
                       <td>{dado.nomeCinema}</td>
+                      <td>{dado.email}</td>
                       <td>
                         <Stack spacing={1} padding={0} direction='row'>
                           <IconButton

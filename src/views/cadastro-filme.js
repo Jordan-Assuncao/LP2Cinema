@@ -87,9 +87,29 @@ function CadastroFilme() {
     } else {
       // Edição
       try {
-        await axios.put(`${baseURL}/${idParam}`, data, {
+        // Atualiza o filme
+        const response = await axios.put(`${baseURL}/${idParam}`, data, {
           headers: { 'Content-Type': 'application/json' },
         });
+
+        // Remove os vínculos antigos de gêneros
+        await axios.delete(`${baseURL}/filme/${idParam}`);
+
+        // Cria os novos vínculos (se houver)
+        const filmeSalvo = response.data;
+        const idFilme = filmeSalvo.id;
+        if (generosSelecionados.length > 0) {
+          let vinculos = generosSelecionados.map((idGenero) => ({
+            idFilme,
+            idGenero
+          }));
+          vinculos = JSON.stringify(vinculos)
+          console.log('Vinculos:', vinculos);
+          await axios.post(`${baseURL4}/lote`, vinculos, {
+            headers: { 'Content-Type': 'application/json' },
+          });
+        }
+
         mensagemSucesso(`Filme ${titulo} alterado com sucesso!`);
         navigate(`/listagem-filmes`);
       } catch (error) {
@@ -100,24 +120,32 @@ function CadastroFilme() {
 
   async function buscar() {
     try {
-      await axios.get(`${baseURL}/${idParam}`).then((response) => {
-        setDados(response.data);
-      });
-      setId(dados.id);
-      setTitulo(dados.titulo);
-      setSinopse(dados.sinopse);
-      setDuracao(dados.duracao);
-      setCartaz(dados.cartaz);
-      setIdClassificacaoIndicativa(dados.idClassificacaoIndicativa);
-      // 2. Buscar vínculos de gêneros do filme (ajuste o endpoint conforme o seu backend)
-      //const responseVinculos = await axios.get(`${baseURL4}/filme/${idParam}`);
-      //const vinculos = responseVinculos.data;
+      const responseFilme = await axios.get(`${baseURL}/${idParam}`);
+      const filme = responseFilme.data;
 
-      // Supondo que cada item tem: { idFilme, idGenero }
-      //const idsDosGeneros = vinculos.map(v => v.idGenero);
-      //setGenerosSelecionados(idsDosGeneros);
+      setDados(filme);
+      setId(filme.id);
+      setTitulo(filme.titulo);
+      setSinopse(filme.sinopse);
+      setDuracao(filme.duracao);
+      setCartaz(filme.cartaz);
+      setIdClassificacaoIndicativa(filme.idClassificacaoIndicativa);
+
+      const responseGenerosDoFilme = await axios.get(`${baseURL}/${idParam}/generos`);
+      const generosDoFilme = responseGenerosDoFilme.data; // array de objetos, cada um tem idGenero
+
+      // Atualiza o estado com IDs dos gêneros selecionados
+      const idsGenerosSelecionados = generosDoFilme.map(g => g.idGenero);
+      setGenerosSelecionados(idsGenerosSelecionados);
+
+      // Se ainda não carregou os gêneros completos do sistema, faça isso também:
+      if (!dadosGeneros.length) {
+        const responseTodosGeneros = await axios.get('/api/v1/generos'); // ajuste a URL
+        setDadosGeneros(responseTodosGeneros.data);
+      }
+
     } catch (error) {
-      console.error("Erro ao buscar filme:", error);
+      console.error("Erro ao buscar filme e/ou gêneros:", error);
     }
   }
 

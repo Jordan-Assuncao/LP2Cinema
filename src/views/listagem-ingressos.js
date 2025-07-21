@@ -76,7 +76,6 @@ function ListagemIngresso() {
                     <th scope='col'>Filme</th>
                     <th scope='col'>Unidade</th>
                     <th scope='col'>Sessão</th>
-                    <th scope='col'>Compra</th>
                     <th scope='col'>Ações</th>
                   </tr>
                 </thead>
@@ -89,7 +88,6 @@ function ListagemIngresso() {
                       <td>{dado.titulo}</td>
                       <td>{dado.nomeUnidade}</td>
                       <td>{dado.horaSessao +" "+ dado.dataSessao}</td>
-                      <td>{dado.idCompra}</td>
                       <td>
                         <Stack spacing={1} padding={0} direction='row'>
                           <IconButton

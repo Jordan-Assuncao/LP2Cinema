@@ -104,13 +104,33 @@ function CadastroSessao() {
     } else {
       // Edição
       try {
-        await axios.put(`${baseURL}/${idParam}`, data, {
+        const response = await axios.put(`${baseURL}/${idParam}`, data, {
           headers: { 'Content-Type': 'application/json' },
         });
+
+        // Remove os vínculos antigos de tiposexibicao
+        await axios.delete(`${baseURL}/tiposexibicao/${idParam}`);
+
+        const sessaoSalva = response.data;
+        const idSessao = sessaoSalva.id;
+        console.log('Sessão salva:', response.data);
+        console.log('ID da sessão:', idSessao);
+
+        if (tipoExibicao.length > 0) {
+          let vinculos = tipoExibicao.map((idTipoExibicao) => ({
+            idSessao,
+            idTipoExibicao
+          }));
+          vinculos = JSON.stringify(vinculos)
+          console.log('Vinculos:', vinculos);
+          await axios.post(`${baseURL4}/lote`, vinculos, {
+            headers: { 'Content-Type': 'application/json' },
+          });
+        }
         mensagemSucesso(`Sessão alterada com sucesso!`);
-        navigate(`/listagem-filmes`);
+        navigate(`/listagem-sessoes`);
       } catch (error) {
-        mensagemErro(error?.response?.data || 'Erro ao editar o filme');
+        mensagemErro(error?.response?.data || 'Erro ao editar o sessao');
       }
     }
   }
@@ -129,6 +149,15 @@ function CadastroSessao() {
     setIdPreco(dados.idPreco);
     setIdFilme(dados.idFilme);
     setIdUnidade(dados.idUnidade)
+    try {
+      const response = await axios.get(`${baseURL4}/sessao/${idParam}`);
+      // response.data é array de objetos {id, sessao, tipoExibicao}
+      // Pegue só os ids dos tipos de exibição
+      const idsTipos = response.data.map(vinculo => vinculo.tipoExibicao.id);
+      setTipoExibicao(idsTipos);
+    } catch (error) {
+      console.log('Erro ao buscar tipos de exibição:', error);
+    }
   }
 
   useEffect(() => {

@@ -17,6 +17,7 @@ import CadastroFormatoExibicao from './views/cadastro-tipo-exibicao';
 import CadastroUnidade from './views/cadastro-unidade';
 import CadastroUsuarioAdmin from './views/cadastro-usuarioadmin';
 
+import Login from './views/login';
 import ListagemAssento from './views/listagem-assentos';
 import ListagemClassificacaoIndicativa from './views/listagem-classificacoes-indicativa';
 import ListagemCliente from './views/listagem-clientes';
@@ -40,6 +41,7 @@ function Rotas(props) {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path='/login' element={<Login />} />
         <Route path='/cadastro-assento/:idParam?' element={<CadastroAssento />} />
         <Route path='/cadastro-classificacao-indicativa/:idParam?' element={<CadastroClassificacaoIndicativa />} />
         <Route path='/cadastro-cliente/:idParam?' element={<CadastroCliente />} />

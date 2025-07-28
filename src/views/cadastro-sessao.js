@@ -285,25 +285,33 @@ function CadastroSessao() {
                   </div>
                 </div>
               </FormGroup>
-              <FormGroup label="Aúdio *">
+              <FormGroup label="Áudio *">
                 <div className="d-flex align-items-center gap-3">
                   <div>
                     <input
-                      type="checkbox"
+                      type="radio"
                       className="form-check-input"
                       id="Dublado"
+                      name="audio"
                       checked={dublado === true}
-                      onChange={() => setDublado(!dublado)}
+                      onChange={() => {
+                        setDublado(true);
+                        setLegendado(false);
+                      }}
                     />
                     <label htmlFor="Dublado" className="ms-2">Dublado</label>
                   </div>
                   <div>
                     <input
-                      type="checkbox"
+                      type="radio"
                       className="form-check-input"
                       id="Legendado"
+                      name="audio"
                       checked={legendado === true}
-                      onChange={() => setLegendado(!legendado)}
+                      onChange={() => {
+                        setDublado(false);
+                        setLegendado(true);
+                      }}
                     />
                     <label htmlFor="Legendado" className="ms-2">Legendado</label>
                   </div>
